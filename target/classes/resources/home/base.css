@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+.lilist {
+	height:250px;
+	width:100%;
+}
+.lidiv {
+	height:250px;
+	width:32%;
+	float:left;
+	background-color:#fff;
+	padding:3px;
+	margin:3px;
+}
+.layui-form-item{
+	margin-left:10px;
+}
+video {
+	transform:none;
+}
+.roomtype {
+	width: 50px;
+	display: inline;
+}
