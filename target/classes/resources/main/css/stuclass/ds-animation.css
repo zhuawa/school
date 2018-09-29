@@ -1,0 +1,286 @@
+@charset "UTF-8";
+/*打赏特效*/
+em { font-style: normal; }
+.dashangEffects { width: 195px; height: 48px; background: #0298d4; position:absolute; z-index: 399; top: 35%; border-top-right-radius: 24px; border-bottom-right-radius: 24px; left: -195px; color: #982409;}
+.dashang_box_effect { 
+  -webkit-animation: dashangbanner 300ms linear forwards; 
+  animation: dashangbanner 300ms linear forwards; 
+}
+.dashangEffects_cl {
+  -webkit-animation: dashangbannerHide 500ms linear both;
+  animation: dashangbannerHide 500ms linear both;
+}
+.dashangEffects_cl_ie {
+  left: 0;
+}
+@keyframes dashangbanner {
+  0% {
+        left: -195px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@-webkit-keyframes dashangbanner {
+  0% {
+        left: -195px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@keyframes dashangbannerHide {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: -360px;
+  }
+}
+@-webkit-keyframes dashangbannerHide {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: -360px;
+  }
+}
+
+.dashang_effects { position: relative; }
+.dashang_effects a { position: absolute; left: 38px; }
+.dashang_effects span { display: block; min-width: 5px; max-width: 115px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 1rem; line-height: 20px; padding-top: 6px; color: #ffffff; font-size: 14px;}
+.dashang_effects em { display: block; font-size: 0.75rem; line-height: 14px; color: #ffffff; font-size: 14px;}
+.dashang_ballWrapper {
+  width: 33px;
+  height: 75px;
+  position: absolute;
+  z-index: 100;
+  right: 10px;
+  top: -30px;
+  opacity: 0;
+  -webkit-animation: dashangopacityShow 3.2s infinite;
+  -moz-animation: dashangopacityShow 3.2s infinite;
+  -o-animation: dashangopacityShow 3.2s infinite;
+  -ms-animation: dashangopacityShow 3.2s infinite;
+  animation: dashangopacityShow 3.2s infinite;
+  -webkit-animation-delay: 200ms;
+  -moz-animation-delay: 200ms;
+  -o-animation-delay: 200ms;
+  -ms-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+.dashang_ball {
+  width: 33px;
+  height: 38px;
+  background: url(../images/animateWallet.png);
+  background-size: 33px auto;
+  position: absolute;
+  top: 0; 
+  z-index: 11;
+  -webkit-animation: dashangjump 1s infinite;
+  -moz-animation: dashangjump 1s infinite;
+  -o-animation: dashangjump 1s infinite;
+  -ms-animation: dashangjump 1s infinite;
+  animation: dashangjump 1s infinite;
+}
+
+.dashang_ballShadow {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 10;
+  margin-left: -15px;
+  width: 15px;
+  height: 10px;
+  background: rgba(20, 20, 20, .1);
+  box-shadow: 0px 0 1px 3px rgba(20,20,20,.1);
+  border-radius: 15px / 20px; 
+  -webkit-transform: scaleY(.2);
+  -moz-transform: scaleY(.2);
+  -ms-transform: scaleY(.2);
+  -o-transform: scaleY(.2);
+  transform: scaleY(.2);
+  -webkit-animation: dashangshrink 1s infinite;
+  -moz-animation: dashangshrink 1s infinite;
+  -o-animation: dashangshrink 1s infinite;
+  -ms-animation: dashangshrink 1s infinite;
+  animation: dashangshrink 1s infinite;
+}
+
+/* Animations */
+@keyframes dashangopacityShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes dashangopacityShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes dashangjump {
+  0% {
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    top: 10px;
+    height: 38px;
+    animation-timing-function: ease-out;
+  }
+  55% {
+    top: 20px; 
+    height: 38px; 
+    border-radius: 0;
+    animation-timing-function: ease-in;
+  }
+  65% {
+    top: 5px; 
+    height: 38px; 
+    border-radius: 0;
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform:scale(1.1) rotate(-10deg);
+  } 
+  80% { 
+    transform:scale(1.1) rotate(10deg);
+  } 
+  85% {
+    transform:scale(1.1) rotate(-5deg);
+  }
+  90% {
+    transform:scale(1.1) rotate(5deg);
+  }
+  95% {
+    top: 0;   
+    animation-timing-function: ease-in;
+  }
+  100% {
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+}
+@-webkit-keyframes dashangjump {
+  0% {
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    top: 10px;
+    height: 38px;
+    animation-timing-function: ease-out;
+  }
+  55% {
+    top: 20px; 
+    height: 38px; 
+    border-radius: 0;
+    animation-timing-function: ease-in;
+  }
+  65% {
+    top: 5px; 
+    height: 38px; 
+    border-radius: 0;
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform:scale(1.1) rotate(-10deg);
+  } 
+  80% { 
+    transform:scale(1.1) rotate(10deg);
+  } 
+  85% {
+    transform:scale(1.1) rotate(-5deg);
+  }
+  90% {
+    transform:scale(1.1) rotate(5deg);
+  }
+  95% {
+    top: 0;   
+    animation-timing-function: ease-in;
+  }
+  100% {
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes dashangshrink {
+  0% {
+    bottom: 0;
+    margin-left: -15px;
+    width: 30px;
+    height: 38px;
+    background: rgba(118, 74, 3, .1);
+    box-shadow: 0px 0 1px 5px rgba(118, 74, 3,.1);
+    border-radius: 15px / 20px;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    bottom: 15px;
+    margin-left: -5px;
+    width: 10px;
+    height: 2px;
+    background: rgba(118, 74, 3, .3);
+    box-shadow: 0px 0 10px 5px rgba(118, 74, 3,.3);
+    border-radius: 10px / 10px;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    bottom: 0;
+    margin-left: -15px;
+    width: 30px;
+    height: 38px;
+    background: rgba(118, 74, 3, .1);
+    box-shadow: 0px 0 1px 5px rgba(118, 74, 3,.1);
+    border-radius: 15px / 20px;
+    animation-timing-function: ease-in;
+  }
+}
+@-webkit-keyframes dashangshrink {
+  0% {
+    bottom: 0;
+    margin-left: -15px;
+    width: 30px;
+    height: 38px;
+    background: rgba(118, 74, 3, .1);
+    box-shadow: 0px 0 1px 5px rgba(118, 74, 3,.1);
+    border-radius: 15px / 20px;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    bottom: 15px;
+    margin-left: -5px;
+    width: 10px;
+    height: 2px;
+    background: rgba(118, 74, 3, .3);
+    box-shadow: 0px 0 10px 5px rgba(118, 74, 3,.3);
+    border-radius: 10px / 10px;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    bottom: 0;
+    margin-left: -15px;
+    width: 30px;
+    height: 38px;
+    background: rgba(118, 74, 3, .1);
+    box-shadow: 0px 0 1px 5px rgba(118, 74, 3,.1);
+    border-radius: 15px / 20px;
+    animation-timing-function: ease-in;
+  }
+}
+@media \0screen\,screen\9 {
+  .dashang_ballWrapper { width: 43px; height: 43px; background: url(../images/animateWalletIE.png); position: absolute; top: 2px;}
+  .dashang_ball { display: none; }
+  .dashang_ballShadow { display: none; }
+}
+
+.ds_animation_dom { width: 100%; height: 100%; position: absolute; left: 0; top: 0; }
+#rightContainer { overflow: hidden; }
+#dsAnimationModule { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+.live3_wrap .spaced_two { position: absolute; z-index: 199; width: 100%;}

@@ -1,0 +1,82 @@
+.gs-tools{height:28px; line-height:28px; position:absolute; right:0px; top:0;width:auto; /*width: 201px;*/  z-index:10;}
+#uselist_number{ display: none;}
+.gs-voice-setting{ float:right;  /*position:absolute;*/ position: static; z-index:10}
+
+.gs-voice-btn{ line-height:20px; color:white; width:auto; /*float:left; */ font-size: 12px; padding-right: 0px;}
+@media \0screen\,screen{
+	.gs-voice-btn{*position: absolute; *right:77px;}
+}
+.voice_user_left{ float: left;}
+.visitor_id{  overflow: hidden; white-space: nowrap; text-overflow:ellipsis;padding-right: 3px;}
+.gs-voice-ctrl{ font-size: 12px;  padding: 0px 5px 0px 18px;margin-left: 0px; position: relative;  z-index:10;  color:white; text-align: right;  line-height: 20px; background:#0298d4;background-position-x: 6px;  border-radius:2px; -webkit-border-radius:2px;-moz-border-radius:2px; right:0px; float: right;cursor: pointer;}
+.gs-voice-ctrl:hover{ background:#03b7ff;}
+.phon_bg {position: absolute;top: 5px;left: 5px;display: block;width: 16px;height: 16px; cursor: pointer;}
+#widget-userlist .number_people {font-family: Helvetica;padding: 0px 2px; padding-left:5px;cursor: pointer;  float: none;}
+/*浮出层-在线人数*/
+.numper_wrap{ position:absolute;right:0px;top:30px;z-index:3; left:initial;}
+.phon_arr{ position:absolute; top:-7px; right:17px;display: block; width:12px; height: 8px; background-position: -454px 2px; z-index:2;}
+.number_phon{ width:127px;height:254px;padding-top: 6px; border: 1px solid #4b5c6e; background: rgba(32,41,51,.9);overflow: auto;  position: relative;outline: none; }
+.number_phon li{ text-align: center; padding:7px 0px 5px 0px; color:#cccccc; margin:0px; width:100%;}
+.gs-userlist-cnt a{ color:white;display: block;width: 83px;margin: 0 auto; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.cnt_lievet{ background: #202b39;}
+.cnt_liodd{ background: #1b222a;}
+.number_phon .jspTrack{width:6px; margin-right:5px;_margin-right:2.5px; background: #1a2129;}
+.number_phon .jspVerticalBar{background: #202933;}
+.number_phon .jspDrag{  margin:0 auto;}
+.number_phon .jspVerticalBar{ width:7px;}
+
+/*分享*/
+#gsQuickMark {
+	float: left;
+	padding-left: 10px;
+	position: relative;
+	display: none;
+}
+#gsQuickMark span, #gsQuickMark em {
+	float: left;
+}
+#gsQuickMark span {  
+    padding: 0 2px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, .35);
+    border: 1px solid rgba(255, 255, 255, .35);
+}
+#gsQuickMark i {
+	width: 20px;
+	height: 20px;
+	background: url(../images/gsQuickMark.png) no-repeat;
+	display: block;
+	float: left;
+}
+#gsQuickMark:hover #headlineShadeBox {
+	display: block;
+}
+#headlineShadeBox {
+	width: 152px;
+    height: auto;
+    background: #212b36;
+    position: relative;
+    left: 0;
+    margin-top: 30px;
+    border: 1px solid rgba(255,255,255,.3);
+	display: none;
+}
+#headlineShade {
+	width: 132px;
+	height: 132px;
+	margin: 0 auto;
+	padding: 5px;
+	margin-top: 5px;
+	background-color: #fff;
+}
+#headlineShadeBox p {
+	line-height: 30px;
+	text-align: center;
+}
+
+@media \0screen\,screen\9 {
+	.number_phon{ background: #222b36;filter:alpha(opacity=90); position: static; z-index:3; color:white; }
+	.number_phon ul{ position:static;}
+	.number_phon li{ position: static; color:white; *zoom:1;z-index:13;}
+}
+.gs-userlist-cnt li:hover { background: #0674d0;}

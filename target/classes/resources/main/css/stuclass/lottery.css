@@ -1,0 +1,19 @@
+/*draw-抽奖*/
+.draw_wrap{ width:309px; height:225px; border:3px solid #1c2630;  position:absolute; left:50%; top:50%; margin:-114px 0px 0px -156px;  border-radius: 3px;}
+.draw{ width:308px; height:224px;border:1px solid #b2b2b2; background: white; }
+.draw_fin{ width:280px; height:21px; line-height: 21px; margin:0 auto; padding:13px 0px 15px 2px; }
+.draw_fin_spn{font-size: 16px; color:#0e85ed; float: left;}
+.draw_wid{ width:309px;}
+.draw_bg{width:282px; height:163px; margin: 5px auto; position:relative; }
+.gs-plugin-main{ width:295px; margin:0px;}
+.draw_info{width: 160px; border: none;top:50%; margin: 32px 62px 0px; background: #db5449; position:absolute; padding:0px; text-align: center; font-size: 14px; overflow: hidden; border-radius: 10px;}
+.CJ_wp{ position: relative;}
+.Cj_bg{ width:200px; height: 38px;}
+/*中奖*/
+.gs-lottery-bat-main{ width:282px; position: static; height:270px; margin-bottom: 10px; border-top: 1px solid #ededed;}
+.lottery_main{width:242px;height:170px;  margin: 78px auto 0px;text-align: center;}
+.gs-lottery-bat-bd{ width:240px;height:170px;  margin: 0 auto;  font-size: 14px;color: red; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
+.gs-lottery-bat-bd span{ font-size: 14px;overflow: hidden; white-space: nowrap; text-overflow:ellipsis; padding:8px 0px;width: 168px;display: block;margin: 0 auto;}
+.Zj_bor{ display: block;}
+.gs-plugin-main .jspTrack{width:10px; background: #ffffff;}
+.gs-plugin-main .jspDrag{ background: rgba(0,0,0,.3);}

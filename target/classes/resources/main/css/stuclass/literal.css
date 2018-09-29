@@ -1,0 +1,25 @@
+/*文字直播*/
+.literalLiving_too { position: absolute; left: 0; bottom: 0;}
+.literalLiving_scale { bottom: 57px; }
+.font_live{ font-size: 14px; line-height: 16px; position: static; width:100%; height:70px; overflow: auto; outline:none;}
+.font_live_wd{ padding:18px 0px 10px 8px; color:#04b7f6; }
+.font_live_hf{padding:5px 0px 0px 8px;}
+@media \0screen\,screen\9 {
+    .font_live{ background: #202933; filter: alpha(opacity=90); }
+}
+.font_live { position: absolute; bottom:55px;width:100%; }
+.font_live_too { left: 0px; bottom: 0px; position: absolute; z-index: 120;}
+.liter_icon{ width:13px; height:13px; position: absolute; left:12px; z-index: 300; display: none; cursor: pointer;}
+.liter_icon_location { top: -44px; }
+.liter_icon_too { bottom: 28px; }
+.liter_icon_border{border:1px solid rgba(255,255,255,.05);position: absolute; left:12px;display: none;border-radius: 50%; cursor: pointer;z-index: 300;}
+.liter_icon_unfold { top:-44px;}
+.icon_unfold_too { bottom: 26px;}
+.liter_icon_bg{background: rgba(0,0,0,.7); width:23px; height:23px;border-radius: 50%;}
+@media \0screen\,screen{
+	.liter_icon_bg{ background:black;}
+}
+.liter_icon_show{ width:23px; height:23px;top:27px; left:9px;}
+.gs-textlive-list{ margin:10px 0px 0px 30px; }
+.gs-textlive-cnt li{ line-height: 15px;word-wrap: break-word;word-break:break-all;}
+.gs-textlive-cnt li i{ padding-left: 6px;font-style: normal;}

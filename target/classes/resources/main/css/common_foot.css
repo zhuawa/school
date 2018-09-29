@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+.new_foot{
+    width: 100%;
+    height: 114px;
+    background-color: #404145;
+    min-width: 1200px;
+}
+.new_foot_main{
+    width: 1000px;
+    margin: 0 auto;
+}
+.copyright{
+    float: left;
+    font-size: 12px;
+    color: #bbbbbb;
+}
+.copyright p{
+    width: 205px;
+    height: 16px;
+    background: url("../img/new_foot_icon.png") no-repeat 0 0;
+    margin-top: 32px;
+    margin-bottom: 10px;
+}
+.copyright a{
+    color: #0dc2b3;
+    margin-left: 5px;
+}
+.ves_contact_us{
+    float: right;
+    margin-top: 32px;
+}
+.ves_contact_us a{
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: url("../img/new_foot_icon.png") no-repeat;
+    margin-left: 15px;
+}
+.ves_contact_us a.line{
+    background-position: 0 -26px;
+}
+.ves_contact_us a.weibo{
+    background-position: -54px -26px;
+}
+.ves_contact_us a.wechat{
+    background-position: -109px -26px;
+}
+.ves_contact_us a.qq{
+    background-position: -163px -26px;
+}
+.ves_contact_us a.line:hover{
+    background-position: 0 -76px;
+}
+.ves_contact_us a.weibo:hover{
+    background-position: -54px -76px;
+}
+.ves_contact_us a.wechat:hover{
+    background-position: -109px -76px;
+}
+.ves_contact_us a.qq:hover{
+    background-position: -163px -76px;
+}
+/* 邀请家长*/
+.invite_parent{
+    position: fixed;
+    display: inline-block;
+    right: 0;
+    margin-left: 389px;
+    bottom: 298px;
+}
+
+.invite_parent a{
+    display: block;
+    width: 111px;
+    height: 112px;
+    background: url("../images_new/c2.png") no-repeat;
+    text-align: center;
+    color: #fff;
+    padding: 73px 0 0 0;
+    line-height: 29px;
+}
+
+
+/*.invite_parent a:hover{
+    background: url("../images_new/tea_invite_hover.png") no-repeat;
+}*/
+
+/*侧边按钮*/
+.side_bar{
+    position: fixed;
+    right: 20px;
+    bottom: 115px;
+    margin-left: 500px;
+}
+.side_bar a{
+    position: relative;
+    display: block;
+    width: 46px;
+    height: 46px;
+    background: url("../images_new/side_bar_icon.png") no-repeat;
+    border: 1px solid #e3e3e3;
+    margin-top: -1px;
+}
+.side_bar a.back_old{
+    background-position: -1px -1px;
+}
+.side_bar a.invite_parent{
+    background-position: -1px -275px;
+}
+.side_bar a.cs_online{
+    background-position: -1px -49px;
+}
+.side_bar a.user_feedback{
+    background-position: -1px -97px;
+}
+.side_bar a.download{
+    background-position: -1px -145px;
+}
+.side_bar a.back_top{
+    background-position: -1px -193px;
+}
+.side_bar a span{
+    display: none;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 28px;
+    height: 28px;
+    line-height: 14px;
+    padding: 10px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #0dc2b3;
+    text-align: center;
+}
+.side_bar a:hover span,.side_bar a.on span{
+    display: block;
+}
+.service_on,.download_on{
+    position: absolute;
+    right: 46px;
+    bottom: 0;
+    width: 94px;
+    min-height: 94px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #ededed;
+    text-align: center;
+}
+.service_on>em{
+    display: block;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    padding-left: 33px;
+    background: url("../images_new/side_bar_icon.png") no-repeat -5px -247px;
+    text-align: left;
+}
+.service_on>b{
+    font-size: 12px;
+    color: #0dc2b3;
+}
+.download_on{
+    padding: 10px 0 5px;
+}
+.download_on>em{
+    font-size: 12px;
+    color: #666666;
+}
+.download_on>i{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin: 5px 0;
+}
+.download_on>i>img{
+    width: 100%;
+    height: 100%;
+}

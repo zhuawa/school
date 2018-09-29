@@ -1,0 +1,24 @@
+
+.vote_small_bor{ width:648px; height:483px; border:1px solid #b2b2b2; background: white;}
+.vote_title{ width:648px; height:43px; line-height: 43px; border-bottom:1px solid #f2f2f2;}
+.vote_title .vote_h3{color:#0e85ed; font-size: 16px; padding-left:21px; padding-right: 181px; float: left;}
+#info_title{font-size: 16px; width:325px; overflow: hidden; white-space:nowrap; text-overflow: ellipsis;}
+.question_main{ height:435px; width:648px;overflow: auto; outline:none;}
+/* 信息*/
+.information_info{ height:38px;  width:100%; padding-top: 4px;text-align: center;}
+.info_time{ font-size: 14px; padding-left:0px; padding-top:8px; float: none;}
+.info_right{ float: right; padding-right:21px;}
+.info_brief, .info_arrange, .info_speech{ float:left; border:1px solid #e0e0e0; border-radius: 5px; padding: 6px 16px 6px 26px; position:relative;}
+.dotted{ float:left; height:2px;overflow: hidden; border-bottom:2px dotted gray;   padding-top: 12px; }
+.tted_wid1{ width:19px;}
+.tted_wid2{width:27px;}
+.brief_bg,.arrange_bg, .speech_bg{ position:absolute; width:18px; height:18px;   left: 5px;bottom: 4px;}
+.brief_bg{ background-position:-97px -24px;}
+.arrange_bg{background-position:-118px -24px;}
+.speech_bg{background-position:-138px -25px;}
+.brief_main{padding-bottom: 30px;}
+.brief_line{ margin:0px 15px; border-bottom: 1px solid #f6f6f6;  line-height: 30px;}
+.brief_title{text-align: center;display: inline; margin-left: 12px;_margin-left:6px; font-size: 14px; padding-bottom: 5px;}
+.brief_main p{padding:12px 13px 0px 26px; line-height:25px; font-size: 12px;word-wrap:break-word;}
+.brief_main .arrange_time{padding-top: 0px; word-wrap:break-word;}
+.brief_main p { width: 590px; margin: 0 auto; }

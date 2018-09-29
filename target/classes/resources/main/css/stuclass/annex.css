@@ -1,0 +1,31 @@
+/*下载*/
+.download{ width:518px; height:380px; margin:-190px 0px 0px -259px;border:3px solid #7f7f7f; position:absolute; top:50%;left:50%; border-radius: 3px;}
+.vote_small_bor{ width:648px; height:483px; border:1px solid #b2b2b2; background: white;}
+.download .vote_small_bor{ width:517px; height:379px;}
+.vote_title{ width:648px; height:43px; line-height: 43px; border-bottom:1px solid #f2f2f2;}
+.vote_title .vote_h3{color:#0e85ed; font-size: 16px; padding-left:21px; padding-right: 181px; float: left;}
+.draw_close{ float:right; width:21px; height:21px; cursor:pointer;}
+.vote_wrap .draw_close{margin:13px 12px 0px 0px;_margin:13px 6px 0px 0px;}
+.question_main{ height:435px; width:648px;overflow: auto; outline:none;}
+.download .question_main{ height:275px; width:517px;}
+.down_wp{height:54px; margin:0px 23px 0px 13px;  border-bottom: 1px solid #ededed}
+.down_file{ float: left;  padding-top: 50px;}
+.down_filename{ float:left; width:360px; height:32px;  padding-top: 20px;padding-left: 18px;}
+.down_filename p{ overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-bottom: 6px;}
+.down_progress{ float: right; position: relative;  margin-top: 7px;_ margin-top: -5px; width:292px; height:2px; background: #d4d4d4;}
+.progress_blue{ position: absolute; left:0px; top:0px; width:200px; height:2px; background: #0e85ed; overflow: hidden;}
+.down_right{ float: right;margin-top: 18px;margin-right: 18px;_margin-right: 9px;}
+.down_btn{ display: block; width:17px; height:20px;}
+.tp_img{ background-position:-295px 4px;}
+.tp_world{background-position:-52px 4px;}
+.tp_excel{background-position:-149px 4px;}
+.tp_ppt{ background-position:-100px 4px; }
+.tp_pdf{background-position:-199px 4px;}
+.tp_txt{background-position:-247px 4px;}
+.tp_video{background-position:-389px 4px;}
+.tp_else{background-position:-389px 4px;}
+.tp_voice{background-position:-437px 4px;}
+.tp_compress{background-position:-486px 4px;}
+.annex_icon { padding-top: 150px; text-align: center;}
+.annex_icon i { width: 96px; height: 80px; background: url(../main/img/bg_smaall.png) no-repeat;) _background: url(../images/bg_smaall8.png) no-repeat; background-position: -1399px 0; display: block; position: relative; left: 50%; margin-left: -48px;}
+.annex_icon span { color: #333333; font-size: 14px; position: relative; top: 12px;}

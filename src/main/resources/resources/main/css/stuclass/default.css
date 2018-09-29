@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+input:focus,select:focus,textarea:focus,button:focus{outline:none;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 12px; font-family: "Microsoft YaHei";vertical-align: baseline;}/*-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-webkit-padding-start:0px;*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block;}
+body {line-height: 1; }
+html,body {width:100%; height:100%; overflow:hidden;}
+ol, ul {list-style: none; }
+blockquote, q {quotes: none; }
+blockquote:before, blockquote:after,q:before, q:after {content: '';content: none; }
+table {border-collapse: collapse;border-spacing: 0;}
+body {font:0.75rem/12px "Microsoft YaHei";}
+/*,SimHei,"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-text-size-adjust:100%;*/
+h1, h2, h3, h4, h5, h6 {font-weight: normal; font-size:12px;}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {font-weight: inherit; }
+
+em {font-style:normal; }
+strong {font-weight: bold;}
+/*small {font-size: 80%; }*/
+
+a { text-decoration: none; -webkit-tap-highlight-color: rgba(0,0,0,0); cursor:pointer;}
+a, a:visited { /*color: #1b1b1b;*/ text-decoration: none; outline: 0; }
+a:hover, a:focus { /*color: #000; */}
+p a, p a:visited { line-height: inherit; }
+
+/*a, img {-webkit-touch-callout: none; }*//* 禁止长按链接与图片弹出菜单 */
+ul { list-style: none outside; }
+ol { list-style: decimal; }
+ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
+ul.square { list-style: square outside; }
+ul.circle { list-style: circle outside; }
+ul.disc { list-style: disc outside; }
+ul ul, ul ol,
+ol ol, ol ul { margin: 4px 0 5px 30px; /*font-size: 90%;*/  }
+
+img.scale-with-grid {max-width: 100%; height: auto; }
+
+.button,button,input[type="submit"],input[type="reset"],input[type="button"],input[type="number"] {-webkit-appearance:none;-moz-appearance:none;font-family: "Microsoft YaHei";}
+/*,SimHei,"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif*/
+button::-moz-focus-inner,input::-moz-focus-inner {border: 0;padding: 0;}
+input:disabled{border: 1px solid #DDD;}
+
+/*,SimHei,"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+input[type="text"],input[type="date"],input[type="password"],input[type="email"],input[type="number"],textarea { outline: none; /*font: 12px "Microsoft YaHei";*/display:block; -webkit-appearance:none;-moz-appearance:none; -moz-border-radius:0px;-webkit-border-radius:0px;border-radius:0px;}
+select {border: 1px solid #a0a0a0; font: 12px "Microsoft YaHei"color: #666; max-width: 100%;display:block;background: #fff;}
+textarea {min-height: 60px; }
+label,legend {display: block;font-weight: normal;}
+input[type="checkbox"] {display: inline;}
+input.readonly,.readonly{background-color:#eee;}
+
+.pr {position: relative;}
+.pa {position: absolute;}
+
+
+.fl {float:left;}
+.fr {float:right;}
+.clear {width:100%; clear:both; font-size:0px; height:0px; line-height:0px; margin:0;}
+.imgb img {display:block;}
+.main {width:100%; margin:0 auto;}
+.main100 {width:100%; height:100%;}
+
+.fl {float:left;}
+.fr {float:right;}

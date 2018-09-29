@@ -1,0 +1,31 @@
+.vote_wrap{ width:649px; height:484px; border:3px solid #7f7f7f; position:absolute; top:50%;left:50%; margin:-250.5px 0px 0px -328px; _margin:-250.5px 0px 0px -318px;  border-radius: 3px;}
+.vote_small_bor{ width:648px; height:483px; border:1px solid #b2b2b2; background: white;}
+.vote_title{ width:648px; height:43px; line-height: 43px; border-bottom:1px solid #f2f2f2;}
+.vote_title .vote_h3{color:#0e85ed; font-size: 16px; padding-left:21px; padding-right: 181px; float: left;}
+/*问答*/
+.question_main{ height:435px; width:648px;overflow: auto; outline:none;}
+.question_main.question_main .gs-userlist-cnt-two{ color:black;}
+.question_left{ }
+.question_main .vote_title{ width:648px;}
+.question_main .question_right{ position:absolute; right:18px;top:13px}
+.question_main .gs-userlist-cnt-two li{ width:586px; padding:8px 10px; margin:0px auto; position:relative; border-bottom:1px solid #F2F2F2;}
+.question_main .li_bg{ overflow: hidden;_top:11px; }
+.answer_containr{ width:70%;word-wrap: break-word;}
+.question_main .reply{ background: #f2f2f2;}
+.question_main .arrow_hide{ background-position:-592px -65px;}
+.question_main .arrow_hide:hover{background-position:-616px -65px;}
+.question_main .arrow_show{background-position:-592px -47px;}
+.question_main .arrow_show:hover{  background-position:-616px -47px;}
+.question_main .arrow{ top:15px;*top:8px;width: 24px;height: 12px;right:-9px;}
+.question_hi_ri{position:absolute; right:20px; top:12px; width:150px;}
+.question_main .itor_name{ width:97px; display: block; float: left;  text-align: right;overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
+.question_hi_ri .pop_sublit{ float: right;}
+.question_main  .arr_hi{ margin-top:5px; padding:0px 10px;}
+.question_reply{ color:black;}
+.replya_timer{ color:#808080;  word-wrap: break-word;}
+.timr_padding{ padding-left: 10px;}
+.question_main .jspTrack{ width:10px; background:#f6f6f6;}
+.question_main .jspDrag{ background: #c5c5c5;}
+.question_icon { padding-top: 150px; text-align: center;}
+.question_icon i { width: 82px; height: 79px; background: url(../main/img/bg_smaall.png) no-repeat;) _background: url(../images/bg_smaall8.png) no-repeat; background-position: -1316px 0; display: block; position: relative; left: 50%; margin-left: -41px;}
+.question_icon span { color: #333333; font-size: 14px; position: relative; top: 12px;}

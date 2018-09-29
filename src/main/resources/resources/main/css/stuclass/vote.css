@@ -1,0 +1,91 @@
+.vote_wrap{ width:649px; height:484px; border:3px solid #7f7f7f; position:absolute; top:50%;left:50%; margin:-250.5px 0px 0px -328px; _margin:-250.5px 0px 0px -318px;  border-radius: 3px;}
+.vote_small_bor{ width:648px; height:483px; border:1px solid #b2b2b2; background: white;}
+.draw_close {float: right;width: 21px;height: 21px;cursor: pointer;}
+.vote_wrap .draw_close{margin:13px 12px 0px 0px;_margin:13px 6px 0px 0px;}
+.vote_content{ outline: none; width:648px; height:441px; margin:0 auto;}
+.force{ padding-top: 0px; display: block;}
+.foot_two_bg{ float: left; margin-left:26px;_margin-left:13px; width:18px; height:18px;  background-position:-790px 0px; }
+.foot_two_fn{ float:left; padding-left: 8px;}
+.vote_main{ width:646px; height:385px; overflow: auto; outline: none;}
+.vote_list{ padding:20px 0px 0px 22px; /*width:600px;*/}
+.list_h6{width: 600px;line-height: 20px;word-wrap:break-word;}
+/* 投票 */
+.vote_wrap{ width:649px; height:484px; border:3px solid #7f7f7f; position:absolute; top:50%;left:50%; margin:-250.5px 0px 0px -328px; _margin:-250.5px 0px 0px -318px;  border-radius: 3px; z-index: 995;}
+.vote_small_bor{ width:648px; height:483px; border:1px solid #b2b2b2; background: white;}
+.vote_title{ width:648px; height:43px; line-height: 43px; border-bottom:1px solid #f2f2f2;}
+.vote_tabwp{ width:100%; height:43px;overflow: hidden; float: left; position: relative;}
+.vote_left, .vote_right{width:16px; height:16px; position: absolute;top:15px; z-index:2; cursor: pointer; display: none;}
+.vote_left{ left:3px; background-position:-32px -44px; }
+.vote_right{ right:0px;background-position:-49px -44px;}
+.vote_tabul{ float: left; position: absolute; left:0px;  padding-left: 10px;}
+.vote_tabli{ width:62px; height:43px; line-height: 43px; text-align:center; margin:0px 18px;_margin:0px 9px; float: left; overflow: hidden;white-space: nowrap; text-overflow:ellipsis; cursor: pointer;}
+.vte_focus{border-bottom:3px solid #2d9dff; height:40px;}
+.vote_title .vote_h3{color:#0e85ed; font-size: 16px; padding-left:21px; padding-right: 181px; float: left;}
+.vote_content{ outline: none; width:648px; height:441px; margin:0 auto;}
+.pages{float:left; /*margin-top:14px;*/ position: relative; padding-left: 22px;}
+.page_bg{display: block; width:10px; height:7px;overflow: hidden; cursor:pointer;}
+.page_one{ margin-bottom:5px; background-position:-602px -2px;}
+.page_two{background-position:-602px -15px;}
+.pages_b{ float: left; cursor: pointer;   padding-top: 15px; padding-left: 6px;}
+.answer_two{ width:391px;  border:1px solid #dcdcdc; position:absolute; bottom: 37px;left: 106px; background: white; -webkit-box-shadow: 2px -1px 5px #d9d9d9;box-shadow: 2px -1px 5px #d9d9d9;}
+.answer_two_arrow{width:16px; height:10px; position:absolute; top:-10px; right:22px; background-position:-32px -18px; }
+.answer_two_p{ width:100%;  line-height: 13px; position:relative;}
+.answer_two_p span{ padding:10px 0px; margin:0px 12px; display: block; border-bottom: 1px solid #f3f3f3; font-size: 12px;  width: 342px; line-height: 16px; }
+.answer_two_p span a:hover{color:#3C90CD;}
+.answer_close{position: absolute;right:16px; top:10px;  width:15px; height:15px; background-position: -772px -2px;}
+.vote_content .jspTrack{ background: #f6f6f6; width:12px; margin:0 auto;}
+.vote_content .jspDrag{ background: #c5c5c5; width:6px;}
+.pae{font-size: 12px; color:#90959a; float:left;padding-left: 7px;}
+.vote_wrap .draw_close{margin:13px 12px 0px 0px;_margin:13px 6px 0px 0px;}
+.vote_main{ width:646px; height:385px; overflow: auto; outline: none;}
+.list_h6{width: 600px;line-height: 20px;word-wrap:break-word;}
+.list_h6_sp{float: left;}
+.list_h6_fn{ display: block; word-break: break-word; word-wrap: break-word; }
+.vote_list{ padding:10px 0px 0px 22px; /*width:600px;*/}
+.list_item{  padding-top:12px;/*clear: both;*/  line-height: 17px;}
+.group{ padding-bottom:10px; }
+.radio_bg{display: block;float: left; width:44px; height:14px;overflow: hidden;margin-top: 2px;   margin-right: 4px;_margin-right: 4px; /*position: relative;*/ }
+.addradio_correct{ background-position: -608px -1px;}
+.vote_foot{ width:100%; float: none; height:50px; line-height: 51px; text-align: center; border-top:1px solid #f2f2f2; font-size: 12px; color:#bc0a0a;}
+.pages_two{float: left;height: 50px;line-height: 50px;text-align: center;font-size: 12px;color: #bc0a0a;width: auto; padding-left: 26px;}
+.list_item_check{ display: none;}
+.group .list_item_rao{display: block; position: absolute;left:68px; opacity: 0;filter: alpha(opacity=0); width:20px; height:20px; margin:0px;}
+.group .list_item_cek{ display: none;}
+.group .list_item_rao_bg{width:16px; height:16px; float: left; background-position:-659px -1px;cursor: pointer; position: relative; }
+.group .list_item_cek_bg{width:17px; height:17px; float: left; background-position: -697px -1px; cursor: pointer; position: relative;}
+.group .addrao_bg{ background-position: -677px -1px;}
+.group .addcek_bg{background-position: -752px -1px;}
+.rao_ft{ padding-left: 5px; word-break: break-word; word-wrap: break-word; }
+.vote_two .addrao_bg{ background-position: -715px -1px;}
+.vote_two .addcek_bg{background-position: -734px -1px;}
+.foot_two_bg{ float: left; margin-left:26px;_margin-left:13px; width:18px; height:18px; margin-top:15px;  background-position:-790px 0px; }
+.pages_font{ float: left; color:black;}
+.foot_two_fn{ float:left; padding-left: 8px;}
+.foot_two_btn{ float: right; width:60px; height:26px; border:0px; background: #DA5744;margin-top:12px; margin-right:12px;_margin-right:6px; color:white; border-radius: 2px; cursor: pointer;}
+.pages_font_red{ color:#c64747;}
+.append_close{ position:relative;top: -35px;right: 10px;}
+.vot_scroll .vote_h3{ font-size: 16px; text-align: center; padding-top:14px; color:#0e85ed; line-height: normal; word-break: break-word; word-wrap: break-word; }
+.vote_textarea{ padding-top:12px;}
+.vote_left_background, .vote_right_background { width: 20px; height: 44px; position: absolute; background-color: #fff; z-index: 1;}
+.vote_right_background { right: 0;}
+#QuestionnaireClosed { width: 60px; height: 26px; line-height: 26px; background: #0e85ed; border-radius: 2px; color: #ffffff; float: right; margin: 12px 12px 0 0; display: none; cursor: pointer; }
+.vote_shade { width: 100%; height: 100%; position: fixed; z-index: 993; top: 0px; left: 0px; overflow: hidden; background: rgb(0, 0, 0); opacity: 0.2; display: none;}
+
+@media \0screen\,screen\9 {
+    .vote_shade { background: #000000; filter:Alpha(opacity=50);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

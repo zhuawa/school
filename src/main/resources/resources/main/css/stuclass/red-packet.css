@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+/*抢红包*/
+.red_packet { width: 308px; border: 3px solid rgba(0, 0, 0, .3);padding-bottom: 12px; position: absolute; top: 50%; left: 50%; margin-top: -181px; margin-left: -154px; background: #ffffff; z-index: 996;}
+.aui_titleBar { position: relative; }
+.aui_title, .me_redPacket { height: 44px; line-height: 47px; padding: 0 28px 0 10px; font-size: 18px; overflow: hidden; text-overflow: ellipsis; background-color: white; color: #0298d4; white-space: nowrap;}
+.draw_close { float: right; width: 21px; height: 21px; cursor: pointer;}
+.aui_close { padding: 0; top: 12px; right: 10px; width: 21px; height: 21px; line-height: 21px; font-size: 0px; color: #333; text-align: center; font-family: Helvetica, STHeiti; text-shadow: 0 1px 0 rgba(255, 255, 255, .9);}
+.aui_close { display: block; position: absolute; text-decoration: none; outline: none; _cursor: pointer;}
+.draw_close { background: url(../main/img/bg_smaall.png) no-repeat; }
+.draw_close { background-position: -475px 0px;}
+.red_packet_bg { width: 282px; height: 300px; background: url(../images/packet.gif) no-repeat; margin: 0 auto; position: relative;}
+.grab  { text-align: center; position: relative; top: 131px; font-size: 21px; color: #ee3c27; font-weight: bold; cursor: pointer; width: 55px; height: 55px; line-height: 52px; margin: 0 auto;}
+.grab span { display: block; font-size: 21px;}
+.red_packet_title { position: relative; top: 135px; text-align: center; color: #ffea97; }
+.whom { font-size: 12px; line-height: 20px; }
+.whom a, .addresser a, .name_red a, .who_condition span { max-width: 83px; overflow: hidden; display: inline-block; white-space: nowrap; text-overflow: ellipsis; vertical-align: middle; cursor: default;}
+.whom span, .addresser span { vertical-align: middle; }
+.describe { height: 44px; font-size: 15px; font-weight: bold; padding: 5px 37px 0 37px; line-height: 22px; word-wrap: break-word; overflow: hidden; }
+/*收到红包*/
+.public_bg { width: 282px; height: 300px; background: url(../images/redbg.png) no-repeat; margin: 0 auto; }
+.snag_packet { width: 227px; height: 57px; background: url(../images/fireworks.png) no-repeat; margin: 0 auto; position: relative; top: 65px;}
+.snag_packet .money { text-align: center; font-size: 36px; color: #ff634a; display: block; font-weight: bold; line-height: 36px;}
+.snag_packet .shift_to { text-align: center; font-size: 12px; color: #e97809; display: block; cursor: auto; line-height: 23px; padding: 10px 0 18px;}
+.snag_packet i, .red_finish i, .past_due i { width: 50px; height: 53px; background: url(../main/img/bg_smaall.png) no-repeat; display: block; position: relative; margin: 0 auto;}
+.snag_packet i { background-position: -1496px -1px; }
+.snag_packet div { font-size: 12px; color: #fff883; text-align: center; }
+.addresser a { color: #fff883; }
+.red_finish, .past_due { color: #ff634a; text-align: center; padding-top: 85px; }
+.red_finish span, .past_due span { font-size: 16px; display: block; font-weight: bold; line-height: 20px;}
+.red_finish div, .past_due div { font-size: 12px; padding: 10px 0 18px;}
+.red_finish i { background-position: -1551px -1px;}
+.look_over { width: 105px; height: 25px; border: 1px solid #fee17a; margin: 0 auto; position: relative; border-radius: 25px;}
+.look_over span { font-size: 12px; line-height: 25px; text-align: center; display: block; color: #fee17a; cursor: pointer; }
+.inner_box { height: 225px; }
+.past_due i { background-position: -1606px -1px; }
+/*红包详情*/
+.red_details { width: 282px; height: 396px; background: url(../images/winning.png) no-repeat; margin: 0 auto; }
+.head_detail { text-align: center; padding-top: 65px; font-size: 14px;}
+.total_money { font-size: 30px; color: #ff634a; display: block; font-weight: bold; position: relative; line-height: 30px;}
+.name_red { color: #ff634a; font-size: 12px; line-height: 15px;}
+.name_red span, .who_condition a { vertical-align: middle; }
+.head_detail .felicitate { color: #e97809; display: block; cursor: auto; line-height: 15px; font-size: 15px; letter-spacing: 2px; padding: 5px 23px 0 23px; word-wrap: break-word;}
+.roll_call { width: 240px; height: 190px; position: absolute; bottom: 25px; left: 50%; margin-left: -120px;}
+.roll_call ul { font-size: 12px; color: #ffffff;}
+.gs_time_left, .gs_name_centre, .optimum { float: left; }
+.gs_money_right { float: right; }
+.gs_time_left { padding-left: 7px; }
+.gs_money_right { padding-right: 8px; }
+.gs_name_centre { max-width: 83px; overflow: hidden; display: inline-block; white-space: nowrap; text-overflow: ellipsis; }
+.roll_call ul li { height: 24px; line-height: 24px; }
+.even_bg { background: rgba(255,255,255,.1); }
+.dis_none { display: none; }
+.optimum i { width: 19px; height: 15px; background: url(../main/img/bg_smaall.png) no-repeat; display: block; background-position: -1675px -32px; margin: 0 auto; position: relative; top: 5px;}
+.optimum { width: 30px; height: 24px; }
+/*我的红包*/
+.redPacket_details { width: 238px; background: #ffffff; border: 3px solid rgba(0, 0, 0, .3); padding-bottom: 12px; position: absolute; z-index: 994; left: 50%; margin-left: -119px; top: 50%; margin-top: -143px;}
+.me_redPacket { border-bottom: 1px solid #dbdbdb; }
+.who_condition { text-align: center; font-size: 12px; color: #000000; padding-top: 15px;}
+.who_condition a { cursor: auto; }
+.who_condition div { font-size: 27px; color: #ff634a; padding-top: 12px; font-weight: bold; line-height: 27px;}
+.who_condition a, .who_condition span { line-height: 15px; }
+.money_number { float: left;}
+.fortune { float: right;}
+.money_number, .fortune { text-align: center; }
+.total_money_bt { width: 185px; height: 50px; color: #808080; padding: 24px 18px 0 18px; font-size: 12px; border-bottom: 2px solid #b2b2b2; margin: 0 auto; margin-bottom: 20px;}
+.money_number span, .fortune span { font-size: 18px; font-weight: bold; line-height: 18px;}
+.money_number div, .fortune div { line-height: 18px;}
+.friends { width: 212px; height: 110px; clear: both; margin: 0 auto;}
+.friends ul { position: relative; }
+.redPacket_time { font-size: 12px; color: #000000; }
+.redPacket_time h5 { max-width: 150px; overflow: hidden; display: inline-block; white-space: nowrap; text-overflow: ellipsis; vertical-align: middle; line-height: 15px; }
+.time_line div { float: right; padding-right: 20px;}
+.time_line span, .time_line a { color: #808080; }
+.friends ul li { padding-bottom: 6px; }
+.red_bg { background-position: -394px -54px; }
+
+/*红包(网络不佳)*/
+.red_packet_bg .grab em { width: 35px; height: 35px; background: url(../images/loading.gif) no-repeat; display: block; position: absolute; left: 9px; top: 9px;}
+.alert_container { width: 282px; height: auto; padding-bottom: 20px; top: 50%; left: 50%; margin: -106px 0px 0px -141px; border: 3px solid #7f7f7f; position: absolute; background: white; display: block; z-index: 999; }
+.comm_title { height: 48px; width: 100%; line-height: 48px; border-bottom: 1px solid #ededed; }
+.alert_title { padding-left: 20px; color: #0e85ed; font-size: 16px;}
+.draw_close { float: right; width: 21px; height: 21px; cursor: pointer; background: url(../main/img/bg_smaall.png) no-repeat; _background: url(../images/bg_smaall8.png) no-repeat; background-position: -475px 0px;}
+.close_icon { position: absolute; right: 8px; top: 10px;}
+.alert-main { text-align: center;}
+.alert_main_tp { color: #000000; line-height: 20px; padding: 10px; font-size: 16px; text-align: center;}
+.alert_now { display: block; width: 80px; height: 32px; background: #0e85ed; text-align: center; line-height: 32px; font-size: 14px; margin: 0 auto; color: #ffffff;}
+/*没有收到红包*/
+.not_received i { width: 79px; height: 95px; background: url(../images/worried.png) no-repeat; margin: 0 auto; position: relative; display: block; }
+.not_received span { text-align: center; display: block; padding-top: 12px; padding-bottom: 50px;}
+.not_received { padding: 65px 0 0 0; }
+/*补充*/
+.hint_size { font-size: 18px; color: #ff634a; font-weight: bold;}
+.whom a { color: #ffea97; }
+.name_red a { color: #ff634a; }
+.gs-msg-list li.red_btn { padding-bottom: 20px; }
+.red_packet_shade_in, .red_packet_shade { width: 100%; height: 100%; position: fixed; z-index: 995; top: 0px; left: 0px; overflow: hidden; background: rgba(0, 0, 0, .3); display: none;}
+.clear_shade { display: block; }
+.red_packet_shade { z-index: 993;}
+.time_line { line-height: 15px; }
+@media \0screen\,screen\9 {
+	.name_red { padding-top: 5px; }
+	.red_packet_shade { background-color: #000000; filter:Alpha(opacity=20); }
+}
