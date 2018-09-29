@@ -21,6 +21,7 @@ function gusts(){
 		var	$ = layui.jquery;
 		$.get("/filelist/"+channelNum, null, function(data) {
 			debugger;
+			var json = JSON.parse(data);
 		});
 	});
 }

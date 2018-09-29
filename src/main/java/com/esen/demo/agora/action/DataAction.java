@@ -1,5 +1,6 @@
 package com.esen.demo.agora.action;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -112,13 +113,19 @@ public class DataAction {
 	}
 	
 	@RequestMapping(value="/filelist/{channelNum}", method=RequestMethod.GET)
-	public String fileList(@PathVariable String channelNum) {//禁言
+	public String fileList(@PathVariable String channelNum) {
+		String filePath = "D:\\uploadfile\\";
+		File file = new File(filePath); 
+		File[] array = file.listFiles(); 
 		JsonObject obj = new JsonObject();
 		JsonArray fileArray = new JsonArray();
 		JsonObject fileItem = new JsonObject();
-		String filePath = "D:\\uploadfile\\";
-		fileItem.addProperty("fileName", "");
-		fileItem.addProperty("filePath", filePath);
+		for(int i=0;i<array.length;i++){
+            System.out.println(array[i].getName());   
+            System.out.println(array[i].getPath());  
+    		fileItem.addProperty("fileName", array[i].getName());
+    		fileItem.addProperty("filePath", array[i].getPath()); 
+        }
 		fileArray.add(fileItem);
 		obj.addProperty("code", 0);
 		obj.addProperty("mgs", "");
