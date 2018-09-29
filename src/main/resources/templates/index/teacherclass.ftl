@@ -3,16 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<title>index</title>
+<title>教师课堂</title>
 <link rel="stylesheet" type="text/css" href="main/css/teacherclass/teacher.css"
+<script src="../assets/js/jquery-1.8.2.min.js"></script>
+<script src="../AgoraRTCSDK-2.4.0.js"></script>
+<script src="../home/teacher.js"></script>
+<script src="../home/host.js"></script>
+<script>
+</script>
 </head>
 
 <body style="background-color:#F8F8F8">
+<!-- 设备 -->
+<div id="div_device" class="panel panel-default" style="display:none;margin:0px;">
+		<div class="select">
+			<label for="audioSource">音频设备(Audio source): </label>
+			<select id="audioSource"></select>
+		</div>
+		<div class="select">
+			<label for="videoSource">视频设备(Video source): </label><select id="videoSource"></select>
+		</div>
+</div>
+<div style="display:none;">主播: <input id="video" type="checkbox" checked></input></div>
+
 <div>
 	<div>
 	     <div class="zuo" style="background-color:#ffffff">
-	      <div class="tupian" style="background-color:#f0f4fd">
-	      	<div style="width:141px; height:128px; padding-top:10px; margin:auto;">
+	      <div id="jiangtai" class="tupian" style="background-color:#f0f4fd">
+	      	<div id="defaultjt" style="width:141px; height:128px; padding-top:10px; margin:auto;">
 	        <img src="main/img/teacherclass/jiantai0.png">
 	        </div>
 	      </div>
@@ -127,5 +145,10 @@
 	 	<img src="main/img/teacherclass/8.png">
 	 </div> 
 </div>
+<script>
+window.onload = function(){
+	join();
+}
+</script>
 </body>
 </html>

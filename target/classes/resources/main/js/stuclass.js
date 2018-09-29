@@ -60,14 +60,18 @@ StuClass.prototype.cut = function() {
  */
 function exchange(a,b){
     var n = a.next(), p = b.prev();
-    if (p.length==0) {
+    if (p.length==0) {//人物视频在main区域要切换到sub区域
     	n=b.next();
     	p=a.prev();
     	a.insertBefore(n);
         b.insertAfter(p);
+        document.getElementById('agora_remote').style.height='160px';
+        document.getElementById('agora_remote').style.width='256px';
     } else {
     	 b.insertBefore(n);
     	    a.insertAfter(p);
+            document.getElementById('agora_remote').style.height='486px';
+            document.getElementById('agora_remote').style.width='815px';
     }
     
 };

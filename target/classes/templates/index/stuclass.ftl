@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="renderer" content="webkit">
-    <title>第一讲 增值税</title>
+    <title>学生课堂</title>
     <link type="text/css" rel="stylesheet" href="../main/css/stuclass/dark.css">
     <link type="text/css" rel="stylesheet" href="../main/css/stuclass/default.css">
     <link type="text/css" rel="stylesheet" href="../main/css/stuclass/jquery-ui.min.css">
@@ -199,8 +199,25 @@
 <link type="text/css" rel="stylesheet" href="../main/css/stuclass/publish-card.css">
 <link type="text/css" rel="stylesheet" href="../main/css/stuclass/red-packet.css">
 <link type="text/css" rel="stylesheet" href="../main/css/stuclass/ds-animation.css">
+<script src="../assets/js/jquery-1.8.2.min.js"></script>
+<script src="../AgoraRTCSDK-2.4.0.js"></script>
+<script src="../home/student.js"></script>
+<script src="../home/gust.js"></script>
 </head>
 <body><div class="" style="display: none; position: absolute;">
+<!-- 设备 -->
+<div id="div_device" class="panel panel-default" style="display:none;margin:0px;">
+		<div class="select">
+			<label for="audioSource">音频设备(Audio source): </label>
+			<select id="audioSource"></select>
+		</div>
+		<div class="select">
+			<label for="videoSource">视频设备(Video source): </label><select id="videoSource"></select>
+		</div>
+</div>
+<div style="display:none;">主播: <input id="video" type="checkbox" checked></input></div>
+
+
 <div class="aui_outer">
 <table class="aui_border">
 <tbody>
@@ -317,16 +334,8 @@
                     
                     <!-- 视频-->
                     <div class="voice_icon_set"></div>
-                    <div class="video_max_wrp vi_max video_opacity video_opshow" style="height: 100%;">
-                        <!-- <img src="http://static.gensee.com/webcast/static/interactive/images/video_bg.jpg" width="100%" height="100%" alt="视频直播"> -->
-                        <gs:video-live embednetsettings="false" site="zhixue.gensee.com:80" ctx="gensee_tra" ownerid="O8xsjSAUf2" code="O8xsjSAUf2__653e97c3e49248ffa9ecbe972f45c4a3" httpmode="false" chatenabled="true" ver="4.0" userdata="" bar="false" uid="1500000100009212401" uname="辛逸" lang="zh_CN" visible="true" class="gs-sdk-widget"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="_GS_FLASH_ID__GS_WIDGET_2_1537964302003" width="100%" height="100%" codebase="https://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab#version=11.1.0.0">	
-                        <param name="movie" value="http://static.gensee.com/webcast/static/sdk/flash/GenseeEasyLive.swf?201805v476">	
-                        <param name="wmode" value="transparent">	<param name="quality" value="high">	<param name="bgcolor" value="#000000">	
-                        <param name="allowScriptAccess" value="always">	<param name="allowFullScreen" value="true">	
-                        <param name="flashvars" value="sc=1&amp;entry=http%3A%2F%2Fzhixue.gensee.com%2Ftraining&amp;code=O8xsjSAUf2__653e97c3e49248ffa9ecbe972f45c4a3&amp;lang=zh_CN&amp;nickName=%E8%BE%9B%E9%80%B8&amp;httpMode=false&amp;group=&amp;widgetid=_GS_WIDGET_2_1537964302003&amp;userdata=&amp;showCBar=false&amp;backURI=&amp;ver=4.0&amp;publicChat=true&amp;init=&amp;liveImprovedMode=false&amp;visible=true&amp;embedNetSettings=false&amp;batchRecChat=false&amp;fullscreen=false&amp;staticPrefix=http%3A%2F%2Fstatic.gensee.com%2Fwebcast&amp;gsused=true">	
-                        <embed src="http://static.gensee.com/webcast/static/sdk/flash/GenseeEasyLive.swf?201805v476" quality="high" bgcolor="#000000" wmode="transparent" width="100%" height="100%" name="_GS_FLASH_ID__GS_WIDGET_2_1537964302003" align="middle" play="true" loop="false" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" flashvars="sc=1&amp;entry=http%3A%2F%2Fzhixue.gensee.com%2Ftraining&amp;code=O8xsjSAUf2__653e97c3e49248ffa9ecbe972f45c4a3&amp;lang=zh_CN&amp;nickName=%E8%BE%9B%E9%80%B8&amp;httpMode=false&amp;group=&amp;widgetid=_GS_WIDGET_2_1537964302003&amp;userdata=&amp;showCBar=false&amp;backURI=&amp;ver=4.0&amp;publicChat=true&amp;init=&amp;liveImprovedMode=false&amp;visible=true&amp;embedNetSettings=false&amp;batchRecChat=false&amp;fullscreen=false&amp;staticPrefix=http%3A%2F%2Fstatic.gensee.com%2Fwebcast&amp;gsused=true" pluginspage="http://www.adobe.com/go/getflashplayer">	
-                        </object>
-                        </gs:video-live>
+                    <div id="videoscreen" class="video_max_wrp vi_max video_opacity video_opshow" style="height: 100%;">
+                        
                      </div>
                     <!-- 最大化图标 -->
                     <a href="javascript:;" class="maximum_bg" style="">
@@ -1286,7 +1295,7 @@
 var stuClass;
 window.onload = function(){
 	stuClass = new StuClass(this);
-	
+	join();
 }
 </script>
 </body>
