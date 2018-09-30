@@ -37,15 +37,16 @@
 
 <div>
 	
-	<table class="layui-hide" id="LAY_table_user" lay-filter="user"></table> 
+	<table id="teacherList" lay-filter="teacherList" lay-data="{id: 'teacherList'}"  class="layui-hide" ></table> 
 </div>
 <script>
 layui.use('table', function(){
   var table = layui.table;
+  var $ = layui.$;
   
   //方法级渲染
   table.render({
-    elem: '#LAY_table_user'
+    elem: '#teacherList'
     ,url: '/getTeacherClassList'
     ,cols: [[
       {checkbox: true, fixed: true}
@@ -59,13 +60,28 @@ layui.use('table', function(){
       ,{field:'place', title: '上课地点', sort: true, width:135}
       ,{field:'count', title: '班级人数', sort: true, width:120}
       ,{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}
-    ]]
-    ,id: 'testReload'
+    ]],parseData: function(res){ //res 即为原始返回的数据
+    									return {
+      										"code": 0, //解析接口状态
+      										"msg": '', //解析提示文本
+      										"count": 1000, //解析数据长度
+      										"data": JSON.parse(res.data) //解析数据列表
+    										};
+  										}
+    ,height: 575
     ,page: true
-    ,height: 315
   });
   
-  var $ = layui.$, active = {
+  table.on('tool(teacherList)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+		var data = obj.data; //获得当前行数据
+		var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+		var tr = obj.tr; //获得当前行 tr 的DOM对象
+		if(layEvent === 'enterclass'){ //进入课堂
+			window.location.href = "/teacherclass";
+		}
+	});
+  
+  active = {
     reload: function(){
       var demoReload = $('#demoReload');
       
@@ -90,9 +106,7 @@ layui.use('table', function(){
 });
 </script>
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+  <a class="layui-btn layui-btn-xs" lay-event="enterclass">进入课堂</a>
 </script>
 </body>
 </html>

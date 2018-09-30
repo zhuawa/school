@@ -1,9 +1,11 @@
 package com.esen.demo.agora.action;
 
+import org.springframework.boot.autoconfigure.web.WebMvcProperties.View;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -27,16 +29,18 @@ public class IndexAction extends BaseAction {
 	public String teacherlist(){
 		return "index/teacherlist";
 	}
+	
 	@RequestMapping(value="/teacherclass")
 	public String teacherclass(){
 		return "index/teacherclass";
 	}
+	
 	@RequestMapping(value="/getTeacherClassList", method=RequestMethod.GET)
 	@ResponseBody
 	public String getTeacherClassList(){
 		JsonArray array = new JsonArray();
 		JsonObject dataObj = null;
-		for (int i=0;i<100;i++) {
+		for (int i=0;i<1;i++) {
 			dataObj = new JsonObject();
 			dataObj.addProperty("id", i);
 			dataObj.addProperty("username", "姜涛");
