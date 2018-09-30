@@ -201,6 +201,13 @@
 <link type="text/css" rel="stylesheet" href="../main/css/stuclass/ds-animation.css">
 <script src="../assets/js/jquery-1.8.2.min.js"></script>
 <script src="../AgoraRTCSDK-2.4.0.js"></script>
+<script>
+var userId = '${Session.loginInfo.id}';
+var uid = '${Session.loginInfo.uid}';
+var userName = '${Session.loginInfo.name}';
+var isHost = '${Session.loginInfo.isHost}';
+</script>
+<script src="../layui/layui.js"></script>
 <script src="../home/student.js"></script>
 <script src="../home/gust.js"></script>
 </head>
@@ -460,7 +467,7 @@
  <textarea id="question"></textarea>                      
  </div>                      
  <div class="quiz-gs-ask-btn-wrap">       
- <input class="quiz-gs-ask-btn gs-ask-btn" type="submit" onClick="stuClass.ask()" value="提问">     
+ <input class="quiz-gs-ask-btn gs-ask-btn" type="submit" onClick="button()" value="提问">     
  </div>                 
  </div>   
  </div>  </div> </div>  </gs:plugin-qa-live>

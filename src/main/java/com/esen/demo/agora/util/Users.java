@@ -19,10 +19,12 @@ public class Users {
 		host1.setId("host1");
 		host1.setName("教师1");
 		host1.setPw("host1");
+		host1.setIsHost("1");
 		User host2 = new User();
 		host2.setId("host2");
 		host2.setName("教师2");
 		host2.setPw("host2");
+		host2.setIsHost("1");
 		hosts = new HashMap<String, User>();
 		hosts.put("host1", host1);
 		hosts.put("host2", host2);
@@ -31,10 +33,12 @@ public class Users {
 		gust1.setId("gust1");
 		gust1.setName("学生1");
 		gust1.setPw("gust1");
+		gust1.setIsHost("0");
 		User gust2 = new User();
 		gust2.setId("gust2");
 		gust2.setName("学生2");
 		gust2.setPw("gust2");
+		gust2.setIsHost("0");
 		gusts = new HashMap<String, User>();
 		users = new HashMap<String, User>();
 		gusts.put("gust1", gust1);
