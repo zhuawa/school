@@ -2,6 +2,13 @@ if(!AgoraRTC.checkSystemRequirements()) {
   alert("Your browser does not support WebRTC!");
 }
 
+/* select Log type */
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.NONE);
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.ERROR);
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.WARNING);
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.INFO);  
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.DEBUG);
+
 /* simulated data to proof setLogLevel() */
 AgoraRTC.Logger.error('this is error');
 AgoraRTC.Logger.warning('this is warning');
@@ -93,16 +100,16 @@ function join() {
   client.on('stream-subscribed', function (evt) {
     var stream = evt.stream;
     console.log("Subscribe remote stream successfully: " + stream.getId());
-    if ($('div#videoscreen #agora_remote').length === 0) {
-      $('div#videoscreen').append('<div id="agora_remote'+'" style="float:left; width:256px;height:160px;display:inline-block;"></div>');
+    if ($('div#video #agora_remote'+stream.getId()).length === 0) {
+      $('div#video').append('<div id="agora_remote'+stream.getId()+'" style="float:left; width:810px;height:607px;display:inline-block;"></div>');
     }
-    stream.play('agora_remote');
+    stream.play('agora_remote' + stream.getId());
   });
 
   client.on('stream-removed', function (evt) {
     var stream = evt.stream;
     stream.stop();
-    $('#agora_remote').remove();
+    $('#agora_remote' + stream.getId()).remove();
     console.log("Remote stream is removed " + stream.getId());
   });
 
@@ -110,7 +117,7 @@ function join() {
     var stream = evt.stream;
     if (stream) {
       stream.stop();
-      $('#agora_remote').remove();
+      $('#agora_remote' + stream.getId()).remove();
       console.log(evt.uid + " leaved from this channel");
     }
   });
@@ -163,100 +170,3 @@ function getDevices() {
 //audioSelect.onchange = getDevices;
 //videoSelect.onchange = getDevices;
 getDevices();
-
-
-// websocket聊天室
-var TYPE_QUESTION = "q";//问题
-var TYPE_CHAT = "c";//聊天
-var ws;
-
-var jsonobj = {
-	id : userId,
-	name : userName,
-	ishost : isHost,
-	channelnum : 1000
-}
-var wsUri = 'ws://localhost:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
-ws = new WebSocket(wsUri);
-layui.use('layer', function(){
-			var layer = layui.layer;
-		var	$ = layui.jquery;
-//接收后台getBasicRemote().sendText()的内容
-ws.onmessage = function(message) {
-	if(message.data!=null){
-		var targ = message.data.indexOf("了聊天室userList:");
-		if(targ > -1){
-			var msg = message.data.substring(0,9);
-    		writeToScreen(msg);
-    	}else if(message.data.startsWith('cmd:[connect]')){
-    		var msg = message.data.substring(12);
-    		if(msg){
-    			msg = msg.replace('[','').replace(']','');
-    			var u = msg.split(",");
-    			layer.confirm('是否接受连麦邀请?', {icon: 3, title:'提示', offset: 'rb'}, function(index){
-    				var timestamp=new Date().getTime();
-    				var stamp = (""+timestamp).substring(6);
-						connection('1',stamp-uid);
-						//join('1',parseInt(stamp+uid));
-						layer.close(index);
-				});
-			}
-    	}else if(message.data.startsWith('cmd:[pageindex]')){
-    		var msg = message.data.substring(14);
-    		if(msg){
-    			
-    		}
-    	}else{
-    		writeToScreen(message.data);
-    	}
-	}else{
-		writeToScreen(message.data);
-	}
-};
-});
-
-//发送按钮监听，点击按钮后，向后台发送信息，由后台OnMessage接收
-function button() {
-    message = document.getElementById('question').value;
-    if(stuClass.type === TYPE_QUESTION){
-    	message = message+"["+TYPE_QUESTION+"]";
-    }else{
-    	message = message+"["+TYPE_CHAT+"]";
-    }
-    document.getElementById('question').value = "";
-    var outMsg = document.getElementById('qul');
-    while(outMsg.children.length>=9){
-		outMsg.children[0].remove();
-    }
-    var chartMsg = document.getElementById('cul');
-    while(chartMsg.children.length>=9){
-    	chartMsg.children[0].remove();
-    }
-    ws.send(message);
-}
-
-//发生错误时
-ws.onerror = function(msg) {
-    writeToScreen('<span style="color:red;">系统出错啦</span>' + msg.data);
-    ws.close();
-};
-
-//聊天信息写入窗口中
-function writeToScreen(message) {
-	var type = message.substring(message.length-3,message.length)
-	if(type === '['+TYPE_QUESTION+']'){
-		message = message.replace('['+TYPE_QUESTION+']','');
-		$('#qul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
-	}else if(type === '['+TYPE_CHAT+']'){
-		message = message.replace('['+TYPE_CHAT+']','');
-		$('#cul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
-	}else{
-		$('#cul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
-	}
-
-}
-
-//当关闭页面时执行，调用后台的OnClose方法
-window.onbeforeunload = function() {
-    ws.close();
-};
