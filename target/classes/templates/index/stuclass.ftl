@@ -611,7 +611,7 @@ var isHost = '${Session.loginInfo.isHost}';
                     
                     <div id="mainscreen" class="video_max_wrp vi_max do_max" style="height: 100%;">
                         <div class="doc_hide doc_show">
-                        	<img src="main/img/stuclass/zzs.png" style="width:100%;height:100%;"/>
+                        	<img id="ppt" src="main/img/zzs_1.jpg" style="width:100%;height:100%;"/>
                         <!--
                             <gs:doc site="zhixue.gensee.com:80" ctx="gensee_tra" ownerid="O8xsjSAUf2" code="O8xsjSAUf2__653e97c3e49248ffa9ecbe972f45c4a3 " uid="1500000100009212401" uname="辛逸" lang="zh_CN" icon="false" bgcolor="#000000" trans="0.5" style="height: 100%;" class="gs-sdk-widget">
 	                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="_GS_FLASH_ID__GS_WIDGET_4_1537964302005" width="100%" height="100%" codebase="https://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab#version=10.1.0.0">

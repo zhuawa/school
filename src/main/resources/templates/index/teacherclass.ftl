@@ -7,6 +7,13 @@
 <link rel="stylesheet" type="text/css" href="main/css/teacherclass/teacher.css"
 <script src="../assets/js/jquery-1.8.2.min.js"></script>
 <script src="../AgoraRTCSDK-2.4.0.js"></script>
+<script>
+var userId = '${Session.loginInfo.id}';
+var uid = '${Session.loginInfo.uid}';
+var userName = '${Session.loginInfo.name}';
+var isHost = '${Session.loginInfo.isHost}';
+</script>
+<script src="../layui/layui.js"></script>
 <script src="../home/teacher.js"></script>
 <script src="../home/host.js"></script>
 <script>
@@ -86,28 +93,18 @@
 	       </div> 
 	       <h5>7/12</h5>
 	      </div>
-	      <div class="tupian00" ><img src="main/img/stuclass/zzs.png" style="width:100%;height:440px;"></div>
+	      <div class="tupian00" >
+	      	<div style="width:5%;height:440px;display:inline;">
+	      		<img src="main/img/last.png" onclick="last()" style="width:30px;height:50px;padding-bottom:200px;">
+	      	</div>
+	      	<img id="ppt" src="main/img/zzs_1.jpg" index=1 total=9 style="width:90%;height:440px;">
+	      	<div style="width:5%;height:440px;display:inline;">
+	      		<img src="main/img/next.png" onclick="next()" style="width:30px;height:50px;padding-bottom:200px;">
+	      	</div>
+	      </div>
 	      <div class="biaobj" style="background-color:#F8F8F8">
-	       <div class="tu01">
-	        <img src="main/img/teacherclass/01.png">
-	       </div>
-	       <div class="tu02">
-	        <img src="main/img/teacherclass/02.png">
-	       </div>
-	       <div class="tu03">
-	        <img src="main/img/teacherclass/03.png">
-	       </div>
 	       <div class="tu04">
 	        <img src="main/img/teacherclass/04.png">
-	       </div>
-	       <div class="tu05">
-	        <img src="main/img/teacherclass/05.png">
-	       </div>
-	       <div class="tu06">
-	        <img src="main/img/teacherclass/06.png">
-	       </div>
-	       <div class="tu07">
-	        <img src="main/img/teacherclass/07.png">
 	       </div>
 	      </div>
 	     </div>

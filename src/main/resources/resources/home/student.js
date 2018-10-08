@@ -202,9 +202,11 @@ ws.onmessage = function(message) {
 				});
 			}
     	}else if(message.data.startsWith('cmd:[pageindex]')){
-    		var msg = message.data.substring(14);
+    		var msg = message.data.substring(15);
     		if(msg){
-    			
+    			//var index = parseInt(document.getElementById('ppt').attributes[2].nodeValue);
+    			document.getElementById('ppt').attributes[2].nodeValue = msg;
+    			document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,35)+msg+".jpg";
     		}
     	}else{
     		writeToScreen(message.data);
