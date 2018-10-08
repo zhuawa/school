@@ -112,7 +112,7 @@ var isHost = '${Session.loginInfo.isHost}';
 	      </div>
 	     </div>
 	     <div class="youbian" style="background-color:#ffffff">
-	      <div class="layui-tab" style="margin:0;height: 70%;">
+	      <div class="layui-tab" style="margin:0;height: 75%;">
 			  <ul class="layui-tab-title">
 			    <li class="layui-this">公聊</li>
 			    <li>私聊</li>
@@ -132,18 +132,9 @@ var isHost = '${Session.loginInfo.isHost}';
 				</div>
 			  </div>
 			</div>
-	      <div class="shuru" style="background-color:#F8F8F8">
-	       <div class="t">
-	       <img src="main/img/teacherclass/T.png">
-	       </div>
-	       <div class="xiaolian">
-	       <img src="main/img/teacherclass/xiaolian.png">
-	       </div>
-	       <h1 class="kongzhixiang">控制项</h1>
-	      </div>
 	      <div class="jiantou" style="background-color:#F8F8F8">
-	       <div class="jiantou01" style="background-color:#FFFFFF">
-	       <textarea rows="6" cols="27" placeholder="请输入..."></textarea>
+	       <div class="jiantou01" style="background-color:#FFFFFF;margin-left:0;">
+	       <textarea rows="7" cols="31" placeholder="请输入..." style="border:solid 1px #ececec;"></textarea>
 	         <button class="layui-btn layui-btn-xs" style="float:right;">发送</button>
 	        
 	       
