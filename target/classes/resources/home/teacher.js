@@ -150,6 +150,8 @@ function unpublish() {
 
 function getDevices() {
   AgoraRTC.getDevices(function (devices) {
+	  var audioSelect = document.querySelector('select#audioSource');
+	  var videoSelect = document.querySelector('select#videoSource');
     for (var i = 0; i !== devices.length; ++i) {
       var device = devices[i];
       var option = document.createElement('option');
@@ -171,10 +173,70 @@ function getDevices() {
 //videoSelect.onchange = getDevices;
 getDevices();
 
+var userList = [];
+var data = {
+    	code : 0,
+    	msg : '',
+    	count : 1000,
+    	data : []
+    }
+//学生列表
+layui.use('table', function(){
+	var table = layui.table;
+	var $ = layui.jquery;
+
+	//第一个实例
+	table.render({
+	 	elem: '#userList'
+	 	,url: '/test/data'
+	,height: 400
+	,cols: [[ //表头
+  		{field: 'id', title: 'ID', hide: true}
+  		,{field: 'name', title: '用户名', width:141, fixed:'left'}
+  		,{field: 'oper', title: '操作', width:112, toolbar: '#toolbar'}
+	]],parseData: function(res){ //res 即为原始返回的数据
+									return {
+  										"code": 0, //解析接口状态
+  										"msg": '', //解析提示文本
+  										"count": 1000, //解析数据长度
+  										"data": userList //解析数据列表
+										};
+										}
+	});
+	
+	table.on('tool(userList)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+	var data = obj.data; //获得当前行数据
+	var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+	var tr = obj.tr; //获得当前行 tr 的DOM对象
+	if(layEvent === 'banned'){ //禁言
+		var atag = tr[0].lastChild.children[0].children[0];
+		if(atag.style.backgroundColor==''){//禁言
+			atag.style.backgroundColor='#999';
+			banned(1,$,obj);
+			data.banned = 1;
+		}else{//取消禁言
+			atag.style.backgroundColor='';
+			banned(0,$,obj);
+			data.banned = 0;
+		}
+	} else if(layEvent === 'connect'){ //连麦
+		var atag = tr[0].lastChild.children[0].children[1];
+		if(atag.style.backgroundColor==''){//连麦
+			atag.style.backgroundColor='#999';
+			connect(1,$,obj);
+		}else{//断开连麦
+			atag.style.backgroundColor='';
+			connect(0,$,obj);
+		}
+	} 
+});
+	
+});
 
 //websocket聊天室
 var TYPE_QUESTION = "q";//问题
 var TYPE_CHAT = "c";//聊天
+var TYPE_TEACHER = "t"//教师端
 var ws;
 
 var jsonobj = {
@@ -194,6 +256,25 @@ ws.onmessage = function(message) {
 		var targ = message.data.indexOf("了聊天室userList:");
 		if(targ > -1){
 			var msg = message.data.substring(0,9);
+			userList = JSON.parse(message.data.substring(targ+13));
+			data.data = userList;
+			layui.use(['table','layer'], function(){
+					var table = layui.table;
+					var layer = layui.layer;
+					//第一个实例
+					table.reload('userList',{
+					
+	 							url: '/test/data',
+	 							parseData: function(res){ //res 即为原始返回的数据
+									return {
+  										"code": 0, //解析接口状态
+  										"msg": '', //解析提示文本
+  										"count": 1000, //解析数据长度
+  										"data": userList //解析数据列表
+										};
+										}
+					});
+			});
     		writeToScreen(msg);
     	}else if(message.data.startsWith('cmd:[connect]')){
     		var msg = message.data.substring(12);
@@ -213,6 +294,8 @@ ws.onmessage = function(message) {
     		if(msg){
     			//var index = parseInt(document.getElementById('ppt').attributes[2].nodeValue);
     			document.getElementById('ppt').attributes[2].nodeValue = msg;
+    			var total = document.getElementById('ppt').attributes[3].nodeValue;
+    			document.getElementById('pagenumber').innerText = msg+'/'+ total;
     			document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,35)+msg+".jpg";
     		}
     	}else{
@@ -225,19 +308,25 @@ ws.onmessage = function(message) {
 });
 
 //发送按钮监听，点击按钮后，向后台发送信息，由后台OnMessage接收
-function button() {
+function button(type) {
     message = document.getElementById('question').value;
-    if(stuClass.type === TYPE_QUESTION){
+    if(teacherClass.type === TYPE_QUESTION){
     	message = message+"["+TYPE_QUESTION+"]";
     }else{
     	message = message+"["+TYPE_CHAT+"]";
     }
     document.getElementById('question').value = "";
     var outMsg = document.getElementById('qul');
+    if (type===TYPE_TEACHER) {
+    	outMsg = document.getElementById('qul_t');
+    }
     while(outMsg.children.length>=9){
 		outMsg.children[0].remove();
     }
     var chartMsg = document.getElementById('cul');
+    if (type===TYPE_TEACHER) {
+    	chartMsg = document.getElementById('cul_t');
+    }
     while(chartMsg.children.length>=9){
     	chartMsg.children[0].remove();
     }
@@ -256,9 +345,11 @@ function writeToScreen(message) {
 	if(type === '['+TYPE_QUESTION+']'){
 		message = message.replace('['+TYPE_QUESTION+']','');
 		$('#qul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
+		$('#qul_t').append('<li style="color:black;font-size:12px;">'+message+'</li> ');
 	}else if(type === '['+TYPE_CHAT+']'){
 		message = message.replace('['+TYPE_CHAT+']','');
 		$('#cul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
+		$('#cul_t').append('<li style="color:black;font-size:12px;">'+message+'</li> ');
 	}else{
 		$('#cul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
 	}
@@ -282,8 +373,23 @@ function last(){
 function next(){
 	var index = parseInt(document.getElementById('ppt').attributes[2].nodeValue);
 	var total = parseInt(document.getElementById('ppt').attributes[3].nodeValue);
-	if(index<10){
+	if(index<9){
 		index+=1;
 		ws.send('cmd:[pageindex]'+index);
 	}
+}
+
+function TeacherClass(wnd){
+	this._wnd = wnd ? wnd : window;
+	this._doc = this._wnd.document;
+	this.type = TYPE_QUESTION;
+	
+};
+
+/**
+ * 切换页面
+ * @param type
+ */
+TeacherClass.prototype.show = function(type) {
+	this.type = type;
 }

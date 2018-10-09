@@ -150,6 +150,8 @@ function unpublish() {
 
 function getDevices() {
   AgoraRTC.getDevices(function (devices) {
+	  var audioSelect = document.querySelector('select#audioSource');
+	  var videoSelect = document.querySelector('select#videoSource');
     for (var i = 0; i !== devices.length; ++i) {
       var device = devices[i];
       var option = document.createElement('option');
@@ -234,6 +236,7 @@ layui.use('table', function(){
 //websocket聊天室
 var TYPE_QUESTION = "q";//问题
 var TYPE_CHAT = "c";//聊天
+var TYPE_TEACHER = "t"//教师端
 var ws;
 
 var jsonobj = {
@@ -253,7 +256,6 @@ ws.onmessage = function(message) {
 		var targ = message.data.indexOf("了聊天室userList:");
 		if(targ > -1){
 			var msg = message.data.substring(0,9);
-			debugger;
 			userList = JSON.parse(message.data.substring(targ+13));
 			data.data = userList;
 			layui.use(['table','layer'], function(){
@@ -306,19 +308,25 @@ ws.onmessage = function(message) {
 });
 
 //发送按钮监听，点击按钮后，向后台发送信息，由后台OnMessage接收
-function button() {
+function button(type) {
     message = document.getElementById('question').value;
-    if(stuClass.type === TYPE_QUESTION){
+    if(teacherClass.type === TYPE_QUESTION){
     	message = message+"["+TYPE_QUESTION+"]";
     }else{
     	message = message+"["+TYPE_CHAT+"]";
     }
     document.getElementById('question').value = "";
     var outMsg = document.getElementById('qul');
+    if (type===TYPE_TEACHER) {
+    	outMsg = document.getElementById('qul_t');
+    }
     while(outMsg.children.length>=9){
 		outMsg.children[0].remove();
     }
     var chartMsg = document.getElementById('cul');
+    if (type===TYPE_TEACHER) {
+    	chartMsg = document.getElementById('cul_t');
+    }
     while(chartMsg.children.length>=9){
     	chartMsg.children[0].remove();
     }
@@ -337,9 +345,11 @@ function writeToScreen(message) {
 	if(type === '['+TYPE_QUESTION+']'){
 		message = message.replace('['+TYPE_QUESTION+']','');
 		$('#qul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
+		$('#qul_t').append('<li style="color:black;font-size:12px;">'+message+'</li> ');
 	}else if(type === '['+TYPE_CHAT+']'){
 		message = message.replace('['+TYPE_CHAT+']','');
 		$('#cul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
+		$('#cul_t').append('<li style="color:black;font-size:12px;">'+message+'</li> ');
 	}else{
 		$('#cul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
 	}
@@ -367,4 +377,19 @@ function next(){
 		index+=1;
 		ws.send('cmd:[pageindex]'+index);
 	}
+}
+
+function TeacherClass(wnd){
+	this._wnd = wnd ? wnd : window;
+	this._doc = this._wnd.document;
+	this.type = TYPE_QUESTION;
+	
+};
+
+/**
+ * 切换页面
+ * @param type
+ */
+TeacherClass.prototype.show = function(type) {
+	this.type = type;
 }

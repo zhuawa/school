@@ -20,8 +20,7 @@ var isHost = '${Session.loginInfo.isHost}';
 <script src="../layui/layui.js"></script>
 <script src="../home/teacher.js"></script>
 <script src="../home/host.js"></script>
-<script src="../main/js/stuclass.js"></script>
-<script src="../home/student.js"></script>
+
 
 </head>
 
@@ -38,7 +37,7 @@ var isHost = '${Session.loginInfo.isHost}';
 </div>
 <div style="display:none;">主播: <input id="video" type="checkbox" checked></input></div>
 
-<div style="height: 610px;">
+<div id="maindiv">
 	<div style="height: 95%;">
 	     <div class="zuo" style="background-color:#ffffff">
 	      <div id="jiangtai" class="tupian" style="background-color:#f0f4fd">
@@ -63,12 +62,7 @@ var isHost = '${Session.loginInfo.isHost}';
 	      </div>
 	      <div class="xin" style="background-color:#ffffff"></div>
 	      <div class="kuang" style="background-color:#ffffff">
-	       <div class="bj" style="background-color:ffffff">
-	        <div class="diannao">
-	         <img src="main/img/teacherclass/diannao.png">
-	        </div>
-	        <h2>宿智强</h2>
-	       </div>
+	        <table id="userList" lay-filter="userList" lay-data="{id: 'userList'}" style="width:100%;"></table>
 	      </div>
 	      <div class="sou" style="background-color:#e9eaee"> 
 	       <div class="sou01" style="background-color:#ffffff">
@@ -96,7 +90,7 @@ var isHost = '${Session.loginInfo.isHost}';
 	       <div class="sanjiao01">
 	        <img src="main/img/teacherclass/sanjiao.png">
 	       </div> 
-	       <h5>7/12</h5>
+	       <h5 id="pagenumber">1/9</h5>
 	      </div>
 	      <div class="tupian00" >
 	      	<div style="width:5%;height:440px;display:inline;">
@@ -116,8 +110,8 @@ var isHost = '${Session.loginInfo.isHost}';
 	     <div class="youbian" style="background-color:#ffffff">
 	      <div class="layui-tab" style="margin:0;height: 75%;">
 			  <ul class="layui-tab-title">
-			    <li class="layui-this" onClick="stuClass.show('q')">问答</li>
-			    <li onClick="stuClass.show('c')">聊天</li>
+			    <li class="layui-this" onClick="teacherClass.show('q')">问答</li>
+			    <li onClick="teacherClass.show('c')">聊天</li>
 			  </ul>
 			  <div class="layui-tab-content">
 			    <div class="layui-tab-item layui-show">
@@ -151,9 +145,15 @@ var isHost = '${Session.loginInfo.isHost}';
 	 </div> 
 </div>
 <script>
-var stuClass;
+var teacherClass;
 window.onload = function(){
-	stuClass = new StuClass(this);
+	var height = window.screen.height ;
+    if (height===720) {
+    	$("#maindiv").css({ "height": (window.screen.height*0.83)+"px"}); 
+    } else if (height===768) {
+    	$("#maindiv").css({ "height": (window.screen.height*0.85)+"px"}); 
+    }
+	teacherClass = new TeacherClass(this);
 	join();
 }
 layui.use('element', function(){
@@ -197,6 +197,10 @@ layui.use('element', function(){
   });
   
 });
+</script>
+<script type="text/html" id="toolbar">
+  <a class="layui-btn layui-btn-xs" lay-event="banned" >禁言</ a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="connect" >连麦</ a>
 </script>
 </body>
 </html>
