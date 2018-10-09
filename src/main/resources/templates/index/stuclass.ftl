@@ -153,7 +153,7 @@
         
 
 
-        GsX = GS._GsX_;
+        //GsX = GS._GsX_;
     </script>
     
 <!--
@@ -208,21 +208,10 @@ var userName = '${Session.loginInfo.name}';
 var isHost = '${Session.loginInfo.isHost}';
 </script>
 <script src="../layui/layui.js"></script>
-<script src="../home/student.js"></script>
 <script src="../home/gust.js"></script>
+<script src="../home/student.js"></script>
 </head>
 <body><div class="" style="display: none; position: absolute;">
-<!-- 设备 -->
-<div id="div_device" class="panel panel-default" style="display:none;margin:0px;">
-		<div class="select">
-			<label for="audioSource">音频设备(Audio source): </label>
-			<select id="audioSource"></select>
-		</div>
-		<div class="select">
-			<label for="videoSource">视频设备(Video source): </label><select id="videoSource"></select>
-		</div>
-</div>
-<div style="display:none;">主播: <input id="video" type="checkbox" checked></input></div>
 
 
 <div class="aui_outer">
@@ -363,78 +352,8 @@ var isHost = '${Session.loginInfo.isHost}';
                                 </ul>
                                 <gs:plugin-qa-live id="widget-qa-live" ui="classic" ver="v1" class="End_show gs-sdk-plugin-widget gs-classic-v1" visible="true"><!-- 问答内容 -->
 
-<script class="gs-qa-live-item-template" type="text/template">
-<li class="spaced_fe qa_tiwen only gs-qa-<%=data.id%> <%=(data.qaownerId==wg.user.id?'':'gs-qa-notmine')%>">
-  <% if(GsX.Util.isEmpty(data.answer)&&GsX.Util.isEmpty(data.tip)){ %>
-  	<div class="spaced_issue"> 
-	    <div class="spaced_issue_info">
-		      <div class="spaced_issue_p">
-		        <span class="spaced_answer_name spac_ans_me">
-		        	<div class="quto_name">
-		        		<%=data.submitor%></div>
-		        	<span class="name_white">
-		        		<%=(GsX.i18n("qa.msg.ask"))%></span>
-		        </span>
-		        <span class="spaced_time">
-		        	<%=GsX.Util.formatTime(Number(data.submitTime)*1000)%></span>
-		      </div>
-		      <div class="spac_container"><span class="auto_spac"><%=data.question%></span><span class="gs-qa-voice-re"></span></div>
-	    </div>
-    </div>
-  <% } %>
-  <% if(GsX.Util.isEmpty(data.answer)&&GsX.Util.isNotEmpty(data.tip)){ %>
-  	<div class="spaced_issue"> 
-	    <div class="spaced_issue_info">
-		      <div class="spaced_issue_p">
-		        <span class="spaced_answer_name spac_ans_me">
-		        	<div class="quto_name">
-		        		<%=data.submitor%></div>
-		        	<span class="name_white">
-		        		<%=(GsX.i18n("qa.msg.ask"))%></span>
-		        </span>
-		        <span class="spaced_time"><%=GsX.Util.formatTime(Number(data.submitTime)*1000)%></span>
-		      </div>
-		      <div class="spac_container"><span class="auto_spac"><%=data.question%></span><span class="gs-qa-voice-re"><%=data.tip%></span></div>
-	    </div>
-    </div>
-  <% } %>
-  <% if(GsX.Util.isNotEmpty(data.answer)){ %>
-    <div class="spaced_answer anson">
-    	<div class="spaced_answer_ul">
-	        <div class="spaced_answer_li">
-		        <div class="spaced_answer_name">
-		        	<div class="answer_hidden">
-		        		<div class="organizer_text_set"><%=data.answerBy%></div>
-			        	<span class="tec_ans"> <%=(GsX.i18n("qa.msg.answer"))%> </span>
-			        	<div class="student_text_set"><%=data.submitor%></div>
-		        	</div>
-			        <span class="spaced_time"><%=GsX.Util.formatTime(Number(data.answerTime)*1000) %></span>
-		        </div>
-		        <span class="ans_LS"><%=data.answer%></span>
-		        <div class="spaced_two_hf">
-		        	<div class="spaced_two_ellip hf_container"><%=data.submitor%> : <%=data.question%></div>
 
-					   <!-- //<span class="hf_name"><span class="hf_container"> <div class="hf_none">
-					    // 	<%=GsX.Util.formatTime(Number(data.submitTime)*1000)%>
-					    // </span></div></span>-->
-				    
-				    
-				    <div class="qa_hf_arrowhide"></div> 
-		        </div>
-		         
-	        </div>
-      	</div>
-    </div>
-  <% } %>
-</li>
-</script>
-<script class="gs-qa-live-msg-template" type="text/template">
-<li class="gs-qa-warning">
-	<div class="gs-qa-type-q">
-		<span class="gs-msg-time"><%=(data.time?GsX.Util.formatTime(data.time*1000):GsX.Util.currentTime())%></span> <%=data.content%> <%=GsX.i18n("qa.submit.fail.frequently")%>
-	</div>
-</li>
-</script>
+
  <div class="live3_QA">  
  	<div class="chat_bg  live3_chat live3_qa gs-qa-live-list" id="qa_width" style="overflow: hidden; padding: 0px; width: 256px;">     
 	 	<div class="jspContainer" id="qlist" style="width: 256px; height: 239px;" >
@@ -473,18 +392,7 @@ var isHost = '${Session.loginInfo.isHost}';
  </div>  </div> </div>  </gs:plugin-qa-live>
  <gs:plugin-chat id="widget-chat" ui="classic" ver="v1" class="not_End gs-sdk-plugin-widget gs-classic-v1" style="display:none" visible="true"><!-- 右侧聊天 -->
 
-<script class="gs-chat-sysmsg-template" type="text/template">
 
-<li class="gs-msgtype-sys"><span class="gs-msg-time">
-<%=(data.time?GsX.Util.formatTime(data.time*1000):GsX.Util.currentTime())%></span> <%=data.content%></li>
-</script>
-<script class="gs-chat-warning-template" type="text/template">
-	<li class="gs-warning-msg"><i class="gs-msg-time">
-	<%=(data.time?GsX.Util.formatTime(data.time*1000):GsX.Util.currentTime())%></i> "<%=data.content%>" <%=GsX.i18n("common.system.sendfail")%> (<%=GsX.i18n("chat.system.submittoooften")%>)</li>
-</script>
-<script class="gs-chat-chattoitem-template" type="text/template">
-	<li><a href="javascript:;"></a></li>
-</script>
   <div class="chat_bg live3_chat right_pan live3_two two_scroll on" style="overflow: hidden; padding: 0px; height: 239px; width: 100px;">     
   <div class="jspContainer" style="width: 100px; height: 239px;">
   <div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;">
@@ -611,7 +519,7 @@ var isHost = '${Session.loginInfo.isHost}';
                     
                     <div id="mainscreen" class="video_max_wrp vi_max do_max" style="height: 100%;">
                         <div class="doc_hide doc_show">
-                        	<img id="ppt" src="main/img/zzs_1.jpg" style="width:100%;height:100%;"/>
+                        	<img id="ppt" src="main/img/zzs_1.jpg" width='100%' style="width:100%;height:100%;"/>
                         <!--
                             <gs:doc site="zhixue.gensee.com:80" ctx="gensee_tra" ownerid="O8xsjSAUf2" code="O8xsjSAUf2__653e97c3e49248ffa9ecbe972f45c4a3 " uid="1500000100009212401" uname="辛逸" lang="zh_CN" icon="false" bgcolor="#000000" trans="0.5" style="height: 100%;" class="gs-sdk-widget">
 	                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="_GS_FLASH_ID__GS_WIDGET_4_1537964302005" width="100%" height="100%" codebase="https://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab#version=10.1.0.0">
@@ -757,529 +665,7 @@ var isHost = '${Session.loginInfo.isHost}';
         <gs:plugin-qalive-popup id="widget-qalive-popup" ui="classic" ver="v1" class="gs-sdk-plugin-widget gs-classic-v1"><!--QA 弹窗-->
 
 
-<script class="gs-qa-vod-item-template" type="text/template">
-	<li class="only  <%=(data.qaownerId==wg.user.id?'popup_live':'gs-qa-notmine')%>">
-	<b class="li_bg "></b>
-	<p class="answer_containr"><%=data.question%></p>
-	<span><%=data.submitor%><span ><%=GsX.Util.formatTime(Number(data.submitTime)*1000) %></span></span>
-	<% if(GsX.Util.isNotEmpty(data.answer)){ %>
-	<li class="only gs-qa-<%=data.id%>">
-		<b class="li_bg"></b>
-		<p class="answer_containr"><%=data.question%></p>
-		<div class="ans_itor">
-			<span class="itor_name"><%=data.submitor%></span>
-			<span class="pop_sublit">
-			<%=GsX.Util.formatTime(Number(data.answerTime)*1000) %>
-			</span>
-		</div>
-		<b class="arrow arrow_hide"></b>
-		<div  class="arr_hi">
-			<div class="question_reply">
-			<span><%=data.answerBy%></span>
-			<span class="replya_timer timr_padding"><%=GsX.Util.formatTime(Number(data.answerTime)*1000) %></span>
-			<p class="replya_timer"><%=data.answer%></p>
-			</div>	
-		</div>
-	</li>
-	<% } %>
-	</li>
-</script>
-<!--QA 弹窗 End-->  <div class="vote_wrap question Wd de">   <div class="vote_small_bor">    <div class="vote_title ">     <h3 class="vote_h3">问答</h3>     <div class="draw_close"></div>    </div>    <div id="question_lsit" class="question_main que_scroll gs-qa-vod-list">     <div class="question_icon">      <i></i>      <span>当前无问答记录</span>     </div>     <ul class="gs-userlist-cnt-two">           </ul>    </div>   </div>  </div> </gs:plugin-qalive-popup>
-        <!-- 信息 -->
-        <gs:plugin-infobox id="widget-infobox" ui="classic" ver="v1" data-desc="" data-plan="眼科医生亲临——拥抱光明未来，青少年用眼健康指导" data-speaker="刘贺婷" data-starttime="2018-09-26 20:00:00" class="gs-sdk-plugin-widget gs-classic-v1"><div id="raiset" class="vote_wrap information de">   <div class="vote_small_bor">    <div class="vote_title">     <h3 id="info_title" class="vote_h3">❤眼科医生亲临——拥抱光明未来，青少年用眼健康指导</h3>     <div class="draw_close"></div>    </div>    <div class="question_main infoma_scroll">     <div class="information_info">      <div class="info_time">       <span class="info_time_title">直播时间 :</span>       <span class="info_start">2018年09月26日20:00:00</span>      </div>           </div>     <div class="brief_main">      <div class="brief_line">       <h3 class="brief_title">简介</h3>      </div>      <p></p>     </div>     <div id="arrange_ti" class="brief_main">      <div class="brief_line">       <h3 class="brief_title">议程</h3>      </div>      <div>       <p class="arrange_time"></p>       <p class="arrange_time"></p>       <p class="arrange_time">眼科医生亲临——拥抱光明未来，青少年用眼健康指导</p>      </div>     </div>     <div class="brief_main">      <div class="brief_line">       <h3 class="brief_title">主讲人</h3>      </div>      <div>       <p class="arrange_time"></p>       <p class="arrange_time"></p>       <p class="arrange_time">刘贺婷</p>      </div>     </div>    </div>   </div>  </div></gs:plugin-infobox>
-        <!-- 下载 -->
-        <!--  id="widget-annex" -->
-        <gs:plugin-annex id="attachment-list" class="accessory-container gs-sdk-plugin-widget gs-classic-v1" ui="classic" ver="v1"><!-- 下载 -->  <div class="vote_wrap download de">   <div class="vote_small_bor">    <div class="vote_title">     <h3 class="vote_h3">文件下载</h3>     <div class="draw_close gs-icon-close"></div>    </div>    <div class="question_main down_main">     <div class="annex_icon">      <i></i>      <span>当前无下载文档</span>     </div>     <ul class="gs-attachment-list">            </ul>    </div>    <div class="vote_foot">    </div>   </div>  </div>  
-        <iframe class="gs-download-iframe" style="display:none" src="saved_resource.ftl">     </iframe>
-        </gs:plugin-annex>
-        <gs:plugin-publish-card id="publish-card-list" class="accessory-container gs-sdk-plugin-widget gs-popular-v1" ui="popular" ver="v1">
-<script class="gs-publishcard-template" type="text/template">
-<!--答题卡-->
-<div class="answer_title">
-	<div class="answer_name"><%=(GsX.i18n("publish.card.card"))%></div>
-</div>
-<div class="topic_answer">
-	<a class="topic_left topic_answer_img" href="javascript:;">1<%=(GsX.i18n("publish.card.input"))%></a>
-	<a class="answer_right topic_answer_img" href="javascript:;">2<%=(GsX.i18n("publish.card.publish"))%></a>
-</div>
-<div class="topic_title">
-	<div class="topic_text">
-		<div class="answer_describe" style="display:block;"><%=(GsX.i18n("publish.card.content"))%></div>
-	</div>
-</div>
-<div class="option_periphery">
-	<!-- 判断题/选择题 -->
-	<div class="judge_select gs-pubc-<%=data.id%>" >
-		<!-- 单项选择题 -->
-		<%var question = data.questions[0].items;%>
-		<% if(question.length > 2 && data.questions[0].type =="single"){ %>
-		<div class="single_option_list">
-			<table>
-				<tr>
-				    <% for(var i=0; i<question.length; i++ ){ %>
-					<td>
-						<div class="topic_option">
-							<label for="" class="item_option_border" cardid="<%=question[i].id%>" cardoption="<%=question[i].option%>"><%=question[i].option%></label>
-						</div></td>
-					<% } %>
-				</tr>
-			</table>
-		</div>
-		<% } %>
-		<%if(question.length > 2 && data.questions[0].type =="multi"){ %>
-		<!-- 多项选择题 -->
-		<div class="multiterm_option_list" style="display:block;">
-			<table>
-				<tr>
-				    <% for(var i=0; i<question.length; i++ ){ %>
-					<td>
-						<div class="multiterm_option multiterm_option_border">
-							<label for="" class="multiterm_img" cardid="<%=question[i].id%>" cardoption="<%=question[i].option%>"></label>
-							<span><%=question[i].option%></span>
-						</div></td>
-					<% } %>
-				</tr>
-			</table>
-		</div>
-		<% } %>
-		<!-- 判断题 -->
-		<%if(question.length == 2){ %>
-		<div class="judge_option_list" style="display:block;">
-			<table>
-				<tr>
-					<td>
-						<div class="judge_option_border" cardid="<%=question[0].id%>" cardoption="<%=question[0].option%>">
-							 <label for="" class="judge_img judge_img_true"></label>
-						</div></td>
-					<td>
-						<div class="judge_option_border" cardid="<%=question[1].id%>" cardoption="<%=question[1].option%>">
-							 <label for="" class="judge_img judge_img_false"></label>
-						</div></td>
-				</tr>
-			</table>
-		</div>
-		<% } %>
-		<!-- 提交按钮 -->
-		<div class="foot_submit_i">
-			<input class="submit_input_style" type="submit" value="<%=(GsX.i18n("publish.card.submit"))%>">
-		</div>
-	</div>
-</div>
-</script>
 
-<script class="gs-publishcard-result-template" type="text/template">
-<!--结果-->
-<div class="answer_title">
-	<div class="answer_name"><%=(GsX.i18n("publish.card.card"))%></div>
-	<a class="answer_close answer_close_img" href="javascript:;"></a>
-</div>
-<%var question = data.questions[0].items;%>
-<div class="topic_answer">
-	<a class="topic_left topic_answer_img  topic_left_leave" href="javascript:;">1<%=(GsX.i18n("publish.card.input"))%></a>
-	<a class="answer_right topic_answer_img answer_right_on" href="javascript:;">2<%=(GsX.i18n("publish.card.publish"))%></a>
-	<span class="respondence"><%=(GsX.i18n("publish.card.all1"))%><span><%=data.questions[0].total%></span><%=(GsX.i18n("publish.card.all2"))%></span>
-</div>
-<div class="topic_title">
-	<div class="topic_text">
-		<div class="answer_review">
-		    <% if(question.length > 2){ %>
-		    <div class="teacher_answer">
-				<span style="float: left;"><%=(GsX.i18n("publish.card.tearesult"))%> </span> <span
-					class="select_answer" style="display:block;float: left;"><%=data.tearesult%></span>
-			</div>
-			<div class="my_answer">
-				<span style="float: left;"><%=(GsX.i18n("publish.card.myresult"))%> </span> <span
-					class="select_answer" style="display:block;"><%=data.myresult%></span>
-			</div>
-			
-			<% }else{ %>
-			<div class="teacher_answer">
-				<span style="float: left;"><%=(GsX.i18n("publish.card.tearesult"))%> </span> 
-				<div>
-				    <% if(data.tearesult == "A"){ %>
-					<em class="answer_options"></em>
-					<% }else if(data.tearesult == "B"){ %>
-					<em class="answer_judge"></em>
-					<% } %>
-				</div>
-			</div>
-			<div class="my_answer">
-				<span style="float: left;"><%=(GsX.i18n("publish.card.myresult"))%> </span>
-				<div>
-					<% if(data.myresult == "A"){ %>
-					<em class="answer_options"></em>
-					<% }else if(data.myresult == "B"){ %>
-					<em class="answer_judge"></em>
-					<% } %>
-				</div>
-			</div>
-			<% } %>
-		</div>
-	</div>
-</div>
-<div class="option_periphery">
-	<!-- 老师公布答案 -->
-	<div class="answer_area" style="display:block">
-		<!-- 选择题答案 -->
-		<div class="uniterming">
-		     <% if(question.length > 2){ %>
-		     <% for(var i=0; i<question.length; i++ ){ %>
-			<div class="option_item">
-				<div class="option_content">
-				    <% if(question[i].correct == "true" ){ %>
-					<em class="right_img"></em> 
-					<% } else{%>
-					<span class="placeholder"></span>
-					<% } %>
-					<span class="option_letter"><%=question[i].option%></span>
-					<div class="gs_title_background">
-						<span style="width: <%=(GsX.Util.calcPercent(question[i].total, data.questions[0].total))%>%"></span>
-					</div>
-				</div>
-				<div class="population">
-					<%=question[i].total%><%=(GsX.i18n("publish.card.man"))%> <span>( <%=(GsX.Util.calcPercent(question[i].total, data.questions[0].total))%>% )</span>
-				</div>
-			</div>
-			<% } %>
-			<% }else{ %>
-			<div class="option_item">
-			   <div class="option_content">
-				    <% if(question[0].correct == "true" ){ %>
-					<em class="right_img"></em> 
-					<% } else{%>
-					<span class="placeholder"></span>
-					<% } %>
-					<span class="option_img_true"></span>
-					<div class="gs_title_background">
-						<span style="width: <%=(GsX.Util.calcPercent(question[0].total, data.questions[0].total))%>%"></span>
-					</div>
-				</div>
-				<div class="population">
-					<%=question[0].total%><%=(GsX.i18n("publish.card.man"))%> <span>( <%=(GsX.Util.calcPercent(question[0].total, data.questions[0].total))%>% )</span>
-				</div>
-			</div>
-			<div class="option_item">
-			   <div class="option_content">
-				    <% if(question[1].correct == "true" ){ %>
-					<em class="right_img"></em> 
-					<% } else{%>
-					<span class="placeholder"></span>
-					<% } %>
-					<span class="option_img_false"></span>
-					<div class="gs_title_background">
-						<span style="width: <%=(GsX.Util.calcPercent(question[1].total, data.questions[0].total))%>%"></span>
-					</div>
-				</div>
-				<div class="population">
-					<%=question[1].total%><%=(GsX.i18n("publish.card.man"))%> <span>( <%=(GsX.Util.calcPercent(question[1].total, data.questions[0].total))%>% )</span>
-				</div>
-			</div>
-			<% } %>
-		</div>
-	</div>
-</div>
-<!-- 答题(对/错)表情提示框 -->
-<div class="end_result">
-	<div class="end_outer_frame">
-		<div class="end_inner_frame">
-			<!-- 错误表情提示 -->
-			<div class="false_icon">
-				<em></em> <span><%=(GsX.i18n("publish.card.correct"))%></span>
-			</div>
-			<!-- 正确表情提示 -->
-			<div class="true_icon" style="display:none">
-				<em></em> <span><%=(GsX.i18n("publish.card.error"))%></span>
-			</div>
-		</div>
-	</div>
-</div>
-</script> <!--容器--> <div class="answer_sheet" style="display:none;">  <div class="answer_sheet_popup">  </div> </div> </gs:plugin-publish-card>
-
-    </div>
-
-
-    <!-- WEB语音 -->
-    <div class="voice_smawrap Yn" tabindex="-1">
-        <div class="voice_smabor">
-            <div class="voice_fin">
-                <div class="sign_fin_spn">Web语音</div>
-                <div class="draw_close"></div>
-            </div>
-            <div class="voice_bg">
-
-                <div class="audio-live">
-                    <gs:audio-live site="zhixue.gensee.com:80" ctx="training" ownerid="O8xsjSAUf2" controls="false" completed="webaudiocallback" class="gs-sdk-widget"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="_GS_FLASH_ID__GS_WIDGET_3_1537964302004" width="100%" height="100%" codebase="https://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab#version=10.0.12.36">	<param name="movie" value="http://static.gensee.com/webcast/static/sdk/flash/GenseeAudio.swf?201805v476">	<param name="wmode" value="transparent">	<param name="quality" value="high">	<param name="bgcolor" value="#ffffff">	<param name="allowScriptAccess" value="always">	<param name="allowFullScreen" value="true">	<param name="flashvars" value="code=O8xsjSAUf2&amp;group=&amp;widgetid=_GS_WIDGET_3_1537964302004&amp;controls=false&amp;init=webaudiocallback">	<embed src="http://static.gensee.com/webcast/static/sdk/flash/GenseeAudio.swf?201805v476" quality="high" bgcolor="#ffffff" wmode="transparent" width="100%" height="100%" name="_GS_FLASH_ID__GS_WIDGET_3_1537964302004" align="middle" play="true" loop="false" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" flashvars="code=O8xsjSAUf2&amp;group=&amp;widgetid=_GS_WIDGET_3_1537964302004&amp;controls=false&amp;init=webaudiocallback" pluginspage="http://www.adobe.com/go/getflashplayer">	</object></gs:audio-live></div>
-
-                <div class="voice_main">
-                    <div class="voice_img">
-                        <img src="../main/img/stuclass/voice_img.jpg" alt="Web语音">
-                    </div>
-                    <p class="voice_info"></p>
-                    <div class="voice_btn">
-                        <input class="voice_ok" type="submit" value="接受">
-                        <input class="voice_no" type="submit" value="拒绝">
-                    </div>
-                </div>
-                <img class="voice_bg_flash" src="../main/img/stuclass/voice_flash.png">
-            </div>
-        </div>
-    </div>
-
-    <!-- 投票 -->
-    <gs:plugin-vote id="widget-vote" ui="classic" ver="v1" class="gs-sdk-plugin-widget gs-classic-v1"></gs:plugin-vote>
-    <gs:plugin-vote-result id="widget-vote-result" class="survey-result gs-sdk-plugin-widget gs-classic-v1" ui="classic" ver="v1"></gs:plugin-vote-result>
-    
-    <gs:plugin-red-packet id="widget-red-packet" ui="classic" ver="v1" class="gs-sdk-plugin-widget gs-classic-v1">
-    
-    
-
-    <!-- 并发数 -->
-    <div class="alert-container">
-        <div class="comm-title">
-            <span class="alert_title">提示</span>
-            <!-- <div class="s-btn"> -->
-            <a class="close-icon draw_close" href="javascript:;" onclick="$(this).parents(&#39;.alert-container&#39;).hide()"></a>
-            <!-- </div> -->
-        </div>
-        <div class="alert-main">
-            <div class="alert_main_tp alert_main_text"></div>
-            <a class="alert_now" href="javascript:;" onclick="$(this).parents(&#39;.alert-container&#39;).hide()">知道了</a>
-        </div>
-    </div>
-    <!-- 抽奖废弃提示弹窗 -->
-    <div class="alert_discard">
-        <div class="alert_main_tp"></div>   
-    </div>
-    
-    <!-- 弹幕 -->
-    
-    <div class="bulletScreen" id="bulletScreenBox">
-        <span>弹幕</span>
-        <div class="bulletScreen_switch">
-            <a><i class="startSwitch"></i></a>
-            <div class="banChatText de" id="banChatText">当前全员禁止聊天</div>
-            <!-- <div class="bulletScreen_input" contenteditable="true"></div> -->
-            <input type="text" name="bulletScreenInput" class="bulletScreen_input" id="bulletScreenInput" value="">
-            <button type="button" class="barrage_send" id="danMu_text_send">发送</button>
-            <div class="danMu_banned_speak de">您输入的字数已超出</div>
-        </div>
-    </div>
-    <!-- (视频/文档)层 -->
-    <div class="barrage_tier" style="width: 1248px;">
-        <!-- 最大化图标 -->
-        <a href="javascript:;" class="maximum_too_img" style="right: 0px;"></a>
-        <gs:gs-barrage site="zhixue.gensee.com:80" ctx="training" ownerid="O8xsjSAUf2" code="O8xsjSAUf2__653e97c3e49248ffa9ecbe972f45c4a3" class="gs-sdk-widget"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="_GS_FLASH_ID__GS_WIDGET_5_1537964302006" width="100%" height="100%" codebase="https://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab#version=10.1.0.0">	<param name="movie" value="http://static.gensee.com/webcast/static/sdk/flash/Barrage.swf?201805v476">	<param name="wmode" value="transparent">	<param name="quality" value="high">	<param name="bgcolor" value="#ffffff">	<param name="allowScriptAccess" value="always">	<param name="allowFullScreen" value="true">	<param name="flashvars" value="code=O8xsjSAUf2&amp;group=&amp;widgetid=_GS_WIDGET_5_1537964302006">	        <embed src="http://static.gensee.com/webcast/static/sdk/flash/Barrage.swf?201805v476" quality="high" bgcolor="#ffffff" wmode="transparent" width="100%" height="100%" name="_GS_FLASH_ID__GS_WIDGET_5_1537964302006" align="middle" play="true" loop="false" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" flashvars="code=O8xsjSAUf2&amp;group=&amp;widgetid=_GS_WIDGET_5_1537964302006" pluginspage="http://www.adobe.com/go/getflashplayer">	</object></gs:gs-barrage></div>
-    
-    <!-- 私聊 -->
-    <div id="privateChat">
-        <div class="direct_message" id="directMessage">
-            <div class="direct_message_top">
-                <div class="gs_span_left">
-                </div>
-                <a class="privateChatHint_close" id="privateChatHintClose"><span></span></a>
-            </div>
-            <div class="direct_message_cont"></div>
-            <div class="privateChat_reply" id="privateChatReply">回复</div>
-        </div>
-        <div id="privateChatBg"></div>
-        <div class="private_chat_messages" id="privateChatMessages">
-            <div class="private_chat_title">
-                <div class="private_chat_object" id="privateChatObject">
-                    <em>正在和</em><span></span>私聊
-                </div>
-                <a class="private_chat_close" id="privateChatClose"></a>
-            </div>
-            <div class="private_chat_cont">
-                <ul class="private_chat_window_list" id="privateChatWindowList">
-                </ul>
-            </div>
-            <div class="private_chat_input_box">
-                <div id="privateChatErrorHint"></div>
-                <input type="text" name="" class="private_chat_input" id="privateChatInput">
-                <button type="button" class="private_chat_button" id="privateChatButton">发送</button>
-            </div>
-        </div>
-    </div>
-    
-    
-<!--red packet container-->
-
-
-<!--grab public red packet info-->
-<script class="gs-grab-pubrp-template" type="text/template">
-	<!-- 抢红包 -->
-	<div class="red_packet_bg">
-		<div class="grab" udata="<%=data.hbid%>">
-			<span><%=(GsX.i18n("redpacket.item.grab"))%></span>
-			<em id="red_packet_load" style="display:none"></em>
-		</div>
-		<div class="red_packet_title">
-			<div class="whom">
-				<a><%=data.username%></a> <span><%=(GsX.i18n("redpacket.item.one"))%></span>
-			</div>
-			<div class="describe">
-			<%=data.comment%>
-			</div>
-		</div>
-	</div>
-</script>
-
-<!--show private red packet info-->
-<script class="gs-show-prirp-template" type="text/template">
-	<div class="public_bg">
-		<div class="inner_box">
-			<!-- 抢到红包/定向红包 -->
-			<div class="snag_packet">
-				<span class="money"><%=data.sum%></span> <a class="shift_to"><%=(GsX.i18n("redpacket.hb.into"))%></a> <i></i>
-				<div class="addresser">
-					<span><%=(GsX.i18n("redpacket.hb.from"))%></span> <a><%=data.username%></a> <span><%=(GsX.i18n("redpacket.hb.whos"))%></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</script>
-
-<!--my red packet result-->
-<script class="gs-result-myrp-template" type="text/template">
-	<!-- 红包反馈  -->
-	<div class="public_bg">
-		<div class="inner_box">
-		    <% if(data.code=="0"){ %>
-			<!-- 抢到红包/定向红包 -->
-			<div class="snag_packet">
-				<span class="money"><%=data.amount%></span> <a class="shift_to"><%=(GsX.i18n("redpacket.hb.intoall"))%></a> <i></i>
-			</div>
-			<% } else if(data.code=="10105"){ %>
-			<!-- 红包已抢完 -->
-			<div class="red_finish">
-				<span><%=(GsX.i18n("redpacket.hb.over"))%></span>
-				<div><%=(GsX.i18n("redpacket.hb.short"))%></div>
-				<i></i>
-			</div>
-			<% } else if(data.code=="10106"){%>
-			<!-- 红包已过期 -->
-			<div class="past_due">
-				<span><%=(GsX.i18n("redpacket.hb.out"))%></span>
-				<div><%=(GsX.i18n("redpacket.hb.next"))%></div>
-				<i></i>
-			</div>
-			<% } else if(data.code=="10104"){%>
-			<!-- 其他提示 -->
-			<div class="past_due">
-				<span><%=(GsX.i18n("redpacket.hb.repeat"))%></span>
-				<div><%=(GsX.i18n("redpacket.hb.next"))%></div>
-				<i></i>
-			</div>
-			<% } else if(data.code=="10107"){%>
-			<!-- 其他提示 -->
-			<div class="past_due">
-				<span><%=(GsX.i18n("redpacket.hb.point"))%></span>
-				<div><%=(GsX.i18n("redpacket.hb.next"))%></div>
-				<i></i>
-			</div>
-			<% } %>
-		</div>
-		<div class="look_over" udata="<%=data.hbid%>">
-			<span><%=(GsX.i18n("redpacket.hb.lookall"))%> </span>
-		</div>
-	</div>
-</script>
-
-
-<!--network error-->
-<script class="gs-result-rperror-template" type="text/template">
-    <div class="alert_container" id="repack_neterror_container" style="display:none">
-        <div class="comm_title">
-            <span class="alert_title"><%=(GsX.i18n("redpacket.hb.tip"))%></span>
-                <a class="close_icon draw_close" href="javascript:;" id="repack_neterror_close"></a>
-        </div>
-        <div class="alert_main">
-            <div class="alert_main_tp alert_main_text"><%=(GsX.i18n("redpacket.hb.error"))%></div>
-            <a class="alert_now" id="repack_neterror_btn" href="javascript:;"><%=(GsX.i18n("common.button.sure"))%></a>
-        </div>
-    </div>
-</script>
-
-<!--all people red packet result-->
-<script class="gs-result-allrp-template" type="text/template">
-	<!-- 红包详情 -->
-	<div class="red_details">
-		<div class="head_detail">
-		    <% if(data.code == "0") {%>
-			<span class="total_money"><%=data.amount%></span>
-			<% } else if(data.code=="10105"){ %>
-			<span class="hint_size"><%=(GsX.i18n("redpacket.hb.over"))%></span>
-			<% } else if(data.code=="10106"){%>
-			<span class="hint_size"><%=(GsX.i18n("redpacket.hb.out"))%></span>
-			<% } else{ %>
-			<span class="total_money"></span>
-			<% } %>
-			<div class="name_red">
-				<a><%=data.uname%></a><span><%=(GsX.i18n("redpacket.hb.whos"))%></span>
-			</div>
-			<a class="felicitate">
-			<%=data.comment%>
-			</a>
-		</div>
-		<div class="roll_call">
-			<ul>
-			    <% for(var i = 0; i < data.userlist.length; i++) {%>
-			    <li>
-					<div class="gs_time_left"><%=GsX.Util.formatTime(Number(data.userlist[i].time*1000))%></div> 
-					<span class="optimum">
-					<% if(data.userlist[i].best){ %>
-						<i></i>
-					<% } %>
-					</span>
-					<div class="gs_name_centre"><%=data.userlist[i].username%></div>
-					<div class="gs_money_right"><%=data.userlist[i].amount%></div></li>
-			    <% } %>
-			</ul>
-		</div>
-	</div>
-</script>
-
-<!--my history red packet container-->
-
-
-<!--my history red packet-->
-<script class="gs-history-myrp-template" type="text/template">
-    <% if(data.list.length == 0){ %>
-	<div class="not_received">
-		<i></i> <span><%=(GsX.i18n("redpacket.hb.no"))%></span>
-	</div>
-	<% } else{%>
-	<div class="who_condition">
-		<span><%=data.name%></span> <a><%=(GsX.i18n("redpacket.hb.allreceive"))%></a>
-		<div><%=data.sum%></div>
-	</div>
-	<div class="total_money_bt">
-		<div class="money_number">
-			<span><%=data.count%></span>
-			<div><%=(GsX.i18n("redpacket.hb.receive"))%></div>
-		</div>
-		<div class="fortune">
-			<span><%=data.bests%></span>
-			<div><%=(GsX.i18n("redpacket.hb.best"))%></div>
-		</div>
-	</div>
-	<div class="friends">
-		<ul>
-		    <% for(var i = 0; i < data.list.length; i++) {%>
-			<li>
-				<div class="redPacket_time">
-					<h5><%=data.list[i].susername%></span></h5>
-					<div class="time_line">
-						<span><%=GsX.Util.formatYMD(Number(data.list[i].time*1000))%></span> <a><%=GsX.Util.formatTime(Number(data.list[i].time*1000))%></a>
-						<div><%=data.list[i].amount%></div>
-					</div>
-				</div>
-			</li>
-			<% } %>
-		</ul>
-	</div>
-	<% } %>
-</script>
      <div class="red_packet" style="display: none;">         
      <div class="aui_titleBar">             
      <div class="aui_title">红包</div>             
@@ -1298,10 +684,31 @@ var isHost = '${Session.loginInfo.isHost}';
               <div class="red_packet_shade"></div> 
               </gs:plugin-red-packet></div>
 
+
+<div id="div_device" class="panel panel-default" style="margin:0px;">
+		<div class="select">
+			<label for="audioSource">音频设备(Audio source): </label>
+			<select id="audioSource"></select>
+		</div>
+		<div class="select">
+			<label for="videoSource">视频设备(Video source): </label><select id="videoSource"></select>
+		</div>
+	</div>
+
+		<div class="panel-body" style="display:none;">
+			<input id="appId" type="hidden" value="737535e73a634ffebc3f794e637736ee" size="36"></input>
+			频道: <input id="channel" type="text" value='${channelNum!}' size="4"></input>
+			<div style="display:none;">主播: <input id="video" type="checkbox" checked></input></div>
+			<button id="join" class="btn btn-primary" onclick="join('0', '${Session.loginInfo.uid}')">加入房间</button>
+			<button id="leave" class="btn btn-primary" onclick="leave()">离开</button>
+			<button id="publish" class="btn btn-primary" onclick="publish()">开播</button>
+			<button id="unpublish" class="btn btn-primary" onclick="unpublish()">停止播放</button>
+		</div>
 <script>
 var stuClass;
 window.onload = function(){
 	stuClass = new StuClass(this);
+	getDevices();
 	join();
 }
 </script>

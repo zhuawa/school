@@ -372,3 +372,6 @@ h3 {
 ..layui-bg-white {
 	color: #FFFFFF !important
 }
+.layui-table-header {
+	display:none;
+}

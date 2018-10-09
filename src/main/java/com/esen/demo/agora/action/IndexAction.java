@@ -1,12 +1,20 @@
 package com.esen.demo.agora.action;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.boot.autoconfigure.web.WebMvcProperties.View;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.esen.demo.agora.entity.User;
+import com.esen.demo.agora.util.ChannelPool;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -32,6 +40,12 @@ public class IndexAction extends BaseAction {
 	
 	@RequestMapping(value="/teacherclass")
 	public String teacherclass(){
+		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+		HttpServletRequest req= requestAttributes.getRequest();
+		User user = (User)req.getSession().getAttribute("loginInfo");
+		ChannelPool cp = ChannelPool.getInstance();
+		Map<String, User> cuMap = cp.getCuMap();
+		cuMap.put("1000", user);
 		return "index/teacherclass";
 	}
 	

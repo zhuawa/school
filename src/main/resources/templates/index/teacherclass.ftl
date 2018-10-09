@@ -63,12 +63,7 @@ var isHost = '${Session.loginInfo.isHost}';
 	      </div>
 	      <div class="xin" style="background-color:#ffffff"></div>
 	      <div class="kuang" style="background-color:#ffffff">
-	       <div class="bj" style="background-color:ffffff">
-	        <div class="diannao">
-	         <img src="main/img/teacherclass/diannao.png">
-	        </div>
-	        <h2>宿智强</h2>
-	       </div>
+	        <table id="userList" lay-filter="userList" lay-data="{id: 'userList'}" style="width:100%;"></table>
 	      </div>
 	      <div class="sou" style="background-color:#e9eaee"> 
 	       <div class="sou01" style="background-color:#ffffff">
@@ -96,7 +91,7 @@ var isHost = '${Session.loginInfo.isHost}';
 	       <div class="sanjiao01">
 	        <img src="main/img/teacherclass/sanjiao.png">
 	       </div> 
-	       <h5>7/12</h5>
+	       <h5 id="pagenumber">1/9</h5>
 	      </div>
 	      <div class="tupian00" >
 	      	<div style="width:5%;height:440px;display:inline;">
@@ -197,6 +192,10 @@ layui.use('element', function(){
   });
   
 });
+</script>
+<script type="text/html" id="toolbar">
+  <a class="layui-btn layui-btn-xs" lay-event="banned" >禁言</ a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="connect" >连麦</ a>
 </script>
 </body>
 </html>

@@ -207,7 +207,8 @@ ws.onmessage = function(message) {
     		if(msg){
     			//var index = parseInt(document.getElementById('ppt').attributes[2].nodeValue);
     			document.getElementById('ppt').attributes[2].nodeValue = msg;
-    			document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,35)+msg+".jpg";
+    			var len =  = document.getElementByItById('ppt').').src.indexOf('zz('zzs_')+4;
+				document.getElementByItById('ppt').src =  = document.getElementByItById('ppt').').src.substring(0,l(0,len)+msg+".jpg";
     		}
     	}else{
     		writeToScreen(message.data);
