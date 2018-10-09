@@ -162,7 +162,7 @@ function getDevices() {
 
 //audioSelect.onchange = getDevices;
 //videoSelect.onchange = getDevices;
-getDevices();
+//getDevices();
 
 
 // websocket聊天室
@@ -177,7 +177,7 @@ var jsonobj = {
 	ishost : isHost,
 	channelnum : 1000
 }
-var wsUri = 'ws://localhost:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
+var wsUri = 'ws://172.17.1.102:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
 ws = new WebSocket(wsUri);
 layui.use('layer', function(){
 			var layer = layui.layer;
@@ -207,8 +207,8 @@ ws.onmessage = function(message) {
     		if(msg){
     			//var index = parseInt(document.getElementById('ppt').attributes[2].nodeValue);
     			document.getElementById('ppt').attributes[2].nodeValue = msg;
-    			var len =  = document.getElementByItById('ppt').').src.indexOf('zz('zzs_')+4;
-				document.getElementByItById('ppt').src =  = document.getElementByItById('ppt').').src.substring(0,l(0,len)+msg+".jpg";
+    			var len = document.getElementById('ppt').src.indexOf('zzs_')+4;
+				document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,len)+msg+".jpg";
     		}
     	}else{
     		writeToScreen(message.data);
