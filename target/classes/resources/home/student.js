@@ -168,6 +168,7 @@ getDevices();
 // websocket聊天室
 var TYPE_QUESTION = "q";//问题
 var TYPE_CHAT = "c";//聊天
+var TYPE_TEACHER = "t"//教师端
 var ws;
 
 var jsonobj = {
@@ -218,7 +219,7 @@ ws.onmessage = function(message) {
 });
 
 //发送按钮监听，点击按钮后，向后台发送信息，由后台OnMessage接收
-function button() {
+function button(type) {
     message = document.getElementById('question').value;
     if(stuClass.type === TYPE_QUESTION){
     	message = message+"["+TYPE_QUESTION+"]";
@@ -227,10 +228,16 @@ function button() {
     }
     document.getElementById('question').value = "";
     var outMsg = document.getElementById('qul');
+    if (type===TYPE_TEACHER) {
+    	outMsg = document.getElementById('qul_t');
+    }
     while(outMsg.children.length>=9){
 		outMsg.children[0].remove();
     }
     var chartMsg = document.getElementById('cul');
+    if (type===TYPE_TEACHER) {
+    	chartMsg = document.getElementById('cul_t');
+    }
     while(chartMsg.children.length>=9){
     	chartMsg.children[0].remove();
     }
@@ -249,9 +256,11 @@ function writeToScreen(message) {
 	if(type === '['+TYPE_QUESTION+']'){
 		message = message.replace('['+TYPE_QUESTION+']','');
 		$('#qul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
+		$('#qul_t').append('<li style="color:black;font-size:12px;">'+message+'</li> ');
 	}else if(type === '['+TYPE_CHAT+']'){
 		message = message.replace('['+TYPE_CHAT+']','');
 		$('#cul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
+		$('#cul_t').append('<li style="color:black;font-size:12px;">'+message+'</li> ');
 	}else{
 		$('#cul').append('<li style="color:white;font-size:12px;">'+message+'</li> ');
 	}

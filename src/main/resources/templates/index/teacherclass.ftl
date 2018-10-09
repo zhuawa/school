@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="../layui/css/layui.css">
 <link type="text/css" rel="stylesheet" href="../main/css/stuclass/qa-live.css">
 <title>教师课堂</title>
-<link rel="stylesheet" type="text/css" href="main/css/teacherclass/teacher.css"
+<link rel="stylesheet" type="text/css" href="main/css/teacherclass/teacher.css">
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
 <script src="../assets/js/jquery-1.8.2.min.js"></script>
 <script src="../AgoraRTCSDK-2.4.0.js"></script>
 <script>
@@ -19,8 +20,9 @@ var isHost = '${Session.loginInfo.isHost}';
 <script src="../layui/layui.js"></script>
 <script src="../home/teacher.js"></script>
 <script src="../home/host.js"></script>
-<script>
-</script>
+<script src="../main/js/stuclass.js"></script>
+<script src="../home/student.js"></script>
+
 </head>
 
 <body style="background-color:#F8F8F8">
@@ -114,28 +116,24 @@ var isHost = '${Session.loginInfo.isHost}';
 	     <div class="youbian" style="background-color:#ffffff">
 	      <div class="layui-tab" style="margin:0;height: 75%;">
 			  <ul class="layui-tab-title">
-			    <li class="layui-this">公聊</li>
-			    <li>私聊</li>
+			    <li class="layui-this" onClick="stuClass.show('q')">问答</li>
+			    <li onClick="stuClass.show('c')">聊天</li>
 			  </ul>
 			  <div class="layui-tab-content">
 			    <div class="layui-tab-item layui-show">
-			      	<ul class="spaced_ul tab_ul gs-msg-list">
-			      		<li style="font-size:12px">教师1：上课</li>
-			      		<li style="font-size:12px">教师1：上课</li>
+			      	<ul class="spaced_ul tab_ul gs-msg-list" id="qul_t">
 			      	</ul>
 			    </div>
 			    <div class="layui-tab-item">
-					<ul class="spaced_ul tab_ul gs-msg-list">
-			      		<li style="font-size:12px">学生1：这边可以随便聊</li>
-			      		<li style="font-size:12px">学生1：哈哈哈</li>
+					<ul class="spaced_ul tab_ul gs-msg-list" id="cul_t">
 			      	</ul>
 				</div>
 			  </div>
 			</div>
 	      <div class="jiantou" style="background-color:#F8F8F8">
 	       <div class="jiantou01" style="background-color:#FFFFFF;margin-left:0;">
-	       <textarea rows="7" cols="31" placeholder="请输入..." style="border:solid 1px #ececec;"></textarea>
-	         <button class="layui-btn layui-btn-xs" style="float:right;">发送</button>
+	       <textarea rows="7" cols="31" placeholder="请输入..." style="border:solid 1px #ececec;" id="question"></textarea>
+	         <button class="layui-btn layui-btn-xs" style="float:right;" onClick="button('t')">发送</button>
 	        
 	       
 	       </div>
@@ -152,9 +150,10 @@ var isHost = '${Session.loginInfo.isHost}';
 	 	<img src="main/img/teacherclass/8.png" title="桌面共享">
 	 </div> 
 </div>
-<script src="../layui/layui.js" charset="utf-8"></script>
 <script>
+var stuClass;
 window.onload = function(){
+	stuClass = new StuClass(this);
 	join();
 }
 layui.use('element', function(){
