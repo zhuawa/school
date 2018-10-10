@@ -177,7 +177,7 @@ var jsonobj = {
 	ishost : isHost,
 	channelnum : 1000
 }
-var wsUri = 'ws://192.168.43.252:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
+var wsUri = 'wss://localhost:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
 ws = new WebSocket(wsUri);
 layui.use('layer', function(){
 			var layer = layui.layer;
