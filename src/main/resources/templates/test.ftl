@@ -1,146 +1,227 @@
 <!DOCTYPE html>
 <html>
 <head>
-  	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  	<title>网络学院直播首页</title>
-  	<link rel="stylesheet" href="../layui/css/layui.css">
-  	<link rel="stylesheet" href="../home/base.css">
+<title>Agora Web Sample</title>
+<link rel="stylesheet" href="../vendor/bootstrap.min.css">
+<script src="../AgoraRTCSDK-2.4.1.js"></script>
+<script src="../vendor/jquery.js"></script>
 </head>
-<body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-  <div class="layui-header">
-    <div class="layui-logo">网络学院</div>
-    <!-- 头部区域（可配合layui已有的水平导航） -->
-    <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">控制台</a></li>
-      <li class="layui-nav-item"><a href="">商品管理</a></li>
-      <li class="layui-nav-item"><a href="/home">用户</a></li>
-      <li class="layui-nav-item"><a href="#" onclick="zhubo();">我是主播</a></li>
-    </ul>
-    <ul class="layui-nav layui-layout-right">
-      <li class="layui-nav-item">
-        <a href="javascript:;">
-          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-          贤心
-        </a>
-        <dl class="layui-nav-child">
-          <dd><a href="">基本资料</a></dd>
-          <dd><a href="">安全设置</a></dd>
-        </dl>
-      </li>
-      <li class="layui-nav-item"><a href="">退了</a></li>
-    </ul>
-  </div>
-  
-   <div class="layui-side layui-bg-black">
-    <div class="layui-side-scroll">
-      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-        <li class="layui-nav-item layui-nav-itemed">
-          <a class="" href="javascript:;">所有商品</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">列表一</a></dd>
-            <dd><a href="javascript:;">列表二</a></dd>
-            <dd><a href="javascript:;">列表三</a></dd>
-            <dd><a href="">超链接</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">解决方案</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">列表一</a></dd>
-            <dd><a href="javascript:;">列表二</a></dd>
-            <dd><a href="">超链接</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item"><a href="">云市场</a></li>
-        <li class="layui-nav-item"><a href="">发布商品</a></li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="layui-body">
-    <!-- 内容主体区域 -->
-   <div class="layui-carousel" id="test1">
-  		<div carousel-item style="margin:3px;">
-    		<div><img style="width:100%" src="../imgs/1.jpg"/></div>
-    		<div><img style="width:100%" src="../imgs/2.jpg"/></div>
-    		<div><img style="width:100%" src="../imgs/3.jpg"/></div>
-    		<div><img style="width:100%" src="../imgs/4.png"/></div>
-    		<div><img style="width:100%" src="../imgs/5.jpg"/></div>
-  		</div>
-	</div> 
 
-<hr class="layui-bg-gray">
-
-	<ul id="demo">
-	  <li class="lilist">
-	  	<div class="lidiv">1</div>
-	  	<div class="lidiv">2</div>
-	  	<div class="lidiv">3</div>
-	  </li>
-	  <li class="lilist">
-	  	<div class="lidiv">4</div>
-	  	<div class="lidiv">5</div>
-	  	<div class="lidiv">6</div>
-	  </li>
-	</ul>
-  
-  </div>
-  <!--
-  <div class="layui-footer">
-    © layui.com - 底部固定区域
-  </div>
-  -->
+<body>
+<div id="div_device" class="panel panel-default">
+<div class="select">
+<label for="audioSource">Audio source: </label><select id="audioSource"></select>
 </div>
-<script src="../layui/layui.js"></script>
-<script src="../home/welcome.js"></script>
-<script>
-layui.use('carousel', function(){
-  var carousel = layui.carousel;
-  //建造实例
-  carousel.render({
-    elem: '#test1'
-    ,width: '100%' //设置容器宽度
-    ,arrow: 'always' //始终显示箭头
-    //,anim: 'updown' //切换动画方式
+<div class="select">
+<label for="videoSource">Video source: </label><select id="videoSource"></select>
+</div>
+</div>
+
+<div id="div_join" class="panel panel-default">
+<div class="panel-body">
+App ID: <input id="appId" type="text" value="" size="36"></input>
+Channel: <input id="channel" type="text" value="1000" size="4"></input>
+Host: <input id="video" type="checkbox" checked></input>
+<button id="join" class="btn btn-primary" onclick="join()">Join</button>
+<button id="leave" class="btn btn-primary" onclick="leave()">Leave</button>
+<button id="publish" class="btn btn-primary" onclick="publish()">Publish</button>
+<button id="unpublish" class="btn btn-primary" onclick="unpublish()">Unpublish</button>
+</div>
+</div>
+
+    <!--style>
+    .video__box{width:910px; margin:0 auto; overflow:hidden;}
+    .video__main{ width:810px; height:607px;float:left }
+    .video__list{ width:200px; height:607px; float:left;}
+    .video__item{ width:200px; height:174px; hei background:url(/img/icon_live.png) center center no-repeat; }
+    </style>
+    <div class="video__main">
+    </div>
+    <div class="video__list">
+        <div class="video__item"></div>
+        <div id="video" class="video__item">
+            <div id="agora_local"></div>
+        </div>
+    </div-->
+
+<div id="video" style="margin:0 auto;">
+    <div id="agora_local" style="float:right;width:210px;height:147px;display:inline-block;"></div>
+</div>
+
+<script language="javascript">
+
+if(!AgoraRTC.checkSystemRequirements()) {
+  alert("Your browser does not support WebRTC!");
+}
+
+/* select Log type */
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.NONE);
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.ERROR);
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.WARNING);
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.INFO);  
+// AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.DEBUG);
+
+/* simulated data to proof setLogLevel() */
+AgoraRTC.Logger.error('this is error');
+AgoraRTC.Logger.warning('this is warning');
+AgoraRTC.Logger.info('this is info');
+AgoraRTC.Logger.debug('this is debug');
+
+var client, localStream, camera, microphone;
+
+var audioSelect = document.querySelector('select#audioSource');
+var videoSelect = document.querySelector('select#videoSource');
+
+function join() {
+  document.getElementById("join").disabled = true;
+  document.getElementById("video").disabled = true;
+  var channel_key = null;
+
+  console.log("Init AgoraRTC client with App ID: " + appId.value);
+  client = AgoraRTC.createClient({mode: 'interop'});
+  client.init(appId.value, function () {
+    console.log("AgoraRTC client initialized");
+    client.join(channel_key, channel.value, null, function(uid) {
+      console.log("User " + uid + " join channel successfully");
+
+      if (document.getElementById("video").checked) {
+        camera = videoSource.value;
+        microphone = audioSource.value;
+        debugger;
+        localStream = AgoraRTC.createStream({streamID: uid, audio: true,  video: document.getElementById("video").checked, screen: false});
+        //localStream = AgoraRTC.createStream({streamID: uid, audio: false, cameraId: camera, microphoneId: microphone, video: false, screen: true, extensionId: 'minllpmhdgpndnkomcoccfekfegnlikg'});
+        if (document.getElementById("video").checked) {
+          localStream.setVideoProfile('720p_3');
+
+        }
+
+        // The user has granted access to the camera and mic.
+        localStream.on("accessAllowed", function() {
+          console.log("accessAllowed");
+        });
+
+        // The user has denied access to the camera and mic.
+        localStream.on("accessDenied", function() {
+          console.log("accessDenied");
+        });
+
+        localStream.init(function() {
+          console.log("getUserMedia successfully");
+          localStream.play('agora_local');
+
+          client.publish(localStream, function (err) {
+            console.log("Publish local stream error: " + err);
+          });
+
+          client.on('stream-published', function (evt) {
+            console.log("Publish local stream successfully");
+          });
+        }, function (err) {
+          console.log("getUserMedia failed", err);
+        });
+      }
+    }, function(err) {
+      console.log("Join channel failed", err);
+    });
+  }, function (err) {
+    console.log("AgoraRTC client init failed", err);
   });
-});
-</script>
-<script>
-layui.use('flow', function(){
-  var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
-  var flow = layui.flow;
-  flow.load({
-    elem: '#demo' //指定列表容器
-    ,scrollElem:'.layui-body'
-    ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
-      var lis = [];
-      //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
-      $.get('/agora/list/'+page, function(res){
-        //假设你的列表返回在data集合中
-      	var temp = 0;
-        layui.each(res.data, function(index, item){
-        	if(index%3==0){
-        		temp=0;
-          		//lis.push('<li style="height:450px;width:300px;float:left;">'+ item.title +'</li>');
-          		lis.push('<li class="lilist">');
-        	}
-				temp++;
-				lis.push('<div class="lidiv">'+item.title+'</div>');
-        	if(temp%3==0){
-          		lis.push('</li>');
-          	}
-        }); 
-        
-        //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
-        //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
-        next(lis.join(''), page < res.pages);    
+
+  channelKey = "";
+  client.on('error', function(err) {
+    console.log("Got error msg:", err.reason);
+    if (err.reason === 'DYNAMIC_KEY_TIMEOUT') {
+      client.renewChannelKey(channelKey, function(){
+        console.log("Renew channel key successfully");
+      }, function(err){
+        console.log("Renew channel key failed: ", err);
       });
     }
   });
-});
+
+
+  client.on('stream-added', function (evt) {
+    var stream = evt.stream;
+    console.log("New stream added: " + stream.getId());
+    console.log("Subscribe ", stream);
+    client.subscribe(stream, function (err) {
+      console.log("Subscribe stream failed", err);
+    });
+  });
+
+  client.on('stream-subscribed', function (evt) {
+    var stream = evt.stream;
+    console.log("Subscribe remote stream successfully: " + stream.getId());
+    if ($('div#video #agora_remote'+stream.getId()).length === 0) {
+      $('div#video').append('<div id="agora_remote'+stream.getId()+'" style="float:left; width:810px;height:607px;display:inline-block;"></div>');
+    }
+    stream.play('agora_remote' + stream.getId());
+  });
+
+  client.on('stream-removed', function (evt) {
+    var stream = evt.stream;
+    stream.stop();
+    $('#agora_remote' + stream.getId()).remove();
+    console.log("Remote stream is removed " + stream.getId());
+  });
+
+  client.on('peer-leave', function (evt) {
+    var stream = evt.stream;
+    if (stream) {
+      stream.stop();
+      $('#agora_remote' + stream.getId()).remove();
+      console.log(evt.uid + " leaved from this channel");
+    }
+  });
+}
+
+function leave() {
+  document.getElementById("leave").disabled = true;
+  client.leave(function () {
+    console.log("Leavel channel successfully");
+  }, function (err) {
+    console.log("Leave channel failed");
+  });
+}
+
+function publish() {
+  document.getElementById("publish").disabled = true;
+  document.getElementById("unpublish").disabled = false;
+  client.publish(localStream, function (err) {
+    console.log("Publish local stream error: " + err);
+  });
+}
+
+function unpublish() {
+  document.getElementById("publish").disabled = false;
+  document.getElementById("unpublish").disabled = true;
+  client.unpublish(localStream, function (err) {
+    console.log("Unpublish local stream failed" + err);
+  });
+}
+
+function getDevices() {
+  AgoraRTC.getDevices(function (devices) {
+    for (var i = 0; i !== devices.length; ++i) {
+      var device = devices[i];
+      var option = document.createElement('option');
+      option.value = device.deviceId;
+      if (device.kind === 'audioinput') {
+        option.text = device.label || 'microphone ' + (audioSelect.length + 1);
+        audioSelect.appendChild(option);
+      } else if (device.kind === 'videoinput') {
+        option.text = device.label || 'camera ' + (videoSelect.length + 1);
+        videoSelect.appendChild(option);
+      } else {
+        console.log('Some other kind of source/device: ', device);
+      }
+    }
+  });
+}
+
+//audioSelect.onchange = getDevices;
+//videoSelect.onchange = getDevices;
+getDevices();
 </script>
 </body>
 </html>

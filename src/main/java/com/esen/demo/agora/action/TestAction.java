@@ -129,4 +129,9 @@ public class TestAction extends BaseAction {
 		}
 	}
 	
+	@RequestMapping(value="/test")
+	public String test1() {
+		return "test";
+	}
+	
 }
