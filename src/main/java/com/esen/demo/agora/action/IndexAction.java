@@ -46,6 +46,7 @@ public class IndexAction extends BaseAction {
 		ChannelPool cp = ChannelPool.getInstance();
 		Map<String, User> cuMap = cp.getCuMap();
 		cuMap.put("1000", user);
+		cp.setCuMap(cuMap);
 		return "index/teacherclass";
 	}
 	

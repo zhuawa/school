@@ -100,6 +100,7 @@ function join() {
   client.on('stream-subscribed', function (evt) {
     var stream = evt.stream;
     console.log("Subscribe remote stream successfully: " + stream.getId());
+    debugger;
     if ($('div#video #agora_remote'+stream.getId()).length === 0) {
       $('div#video').append('<div id="agora_remote'+stream.getId()+'" style="float:left; width:810px;height:607px;display:inline-block;"></div>');
     }
@@ -245,7 +246,7 @@ var jsonobj = {
 	ishost : isHost,
 	channelnum : 1000
 }
-var wsUri = 'wss://localhost:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
+var wsUri = 'wss://172.17.1.102:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
 ws = new WebSocket(wsUri);
 layui.use('layer', function(){
 		var layer = layui.layer;
@@ -296,7 +297,9 @@ ws.onmessage = function(message) {
     			document.getElementById('ppt').attributes[2].nodeValue = msg;
     			var total = document.getElementById('ppt').attributes[3].nodeValue;
     			document.getElementById('pagenumber').innerText = msg+'/'+ total;
-    			document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,35)+msg+".jpg";
+    			document.getElementById('ppt').attributes[2].nodeValue = msg;
+    			var len = document.getElementById('ppt').src.indexOf('zzs_')+4;
+    			document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,len)+msg+".jpg";
     		}
     	}else{
     		writeToScreen(message.data);

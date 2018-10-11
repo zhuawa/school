@@ -1,11 +1,9 @@
-
-
 .cut {
 	width: 24px;
 	height: 24px;
-    cursor: pointer;
-    transition: all 0.6s;
+ 	cursor: pointer;
+	transition: all 0.6s;
 }
 .cut:hover {
-    transform: scale(1.4);
+	transform: scale(1.4);
 }

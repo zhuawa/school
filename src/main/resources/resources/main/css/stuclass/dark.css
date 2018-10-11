@@ -1,5 +1,5 @@
 /**
- * 娣辫壊鐗� */
+ * 濞ｈ精澹婇悧锟� */
 .volume_voice, .volume_close, .volume_cut, .volume_vol, .operation_raise,
 	.operation_QA, .operation_redPacket, .operation_I, .operation_down,
 	.checked_bg, .phon_bg, .gs-icon, .select-box .arrow, .li_bg,
@@ -270,7 +270,6 @@
 }
 
 .doc_wrap_img {
-	background: url(../images/doc_bg.png) no-repeat center center;
 	_background: url(../images/doc_bg8.png) no-repeat center center;
 	margin: -65px 0px 0px -130px;
 }
@@ -560,7 +559,6 @@
 }
 
 .full_ct_show {
-	background: url(../images/full_chat_show.png) no-repeat center;
 	_background: url(../images/full_chat_show8.png) no-repeat center;
 	cursor: pointer;
 }
@@ -634,7 +632,7 @@
 	background: url(../images/voice_flash.png);
 	background-size: 280px 240px;
 }
-/*鎻愮ず*/
+/*閹绘劗銇�*/
 .alert_hint, .alert_submit, .alert_noforce {
 	width: 255px;
 	height: 60px;
@@ -682,7 +680,7 @@
 	}
 }
 
-/* 涓夊垎灞�*/
+/* 娑撳鍨庣仦锟�*/
 .spaced .spaced_btn {
 	background: inherit;
 	*background: none;
@@ -785,7 +783,7 @@
 	word-break: initial;
 }
 
-/* 寮圭獥 */
+/* 瀵湱鐛� */
 .system_bg {
 	background: url(../main/img/bg_smaall.png) no-repeat -394px 1px;
 	_background: url(../images/bg_smaall8.png) no-repeat -394px 1px;
@@ -889,7 +887,7 @@
 	color: #808080;
 }
 
-/* 鎺у埗鏉℃彁绀�*/
+/* 閹貉冨煑閺夆剝褰佺粈锟�*/
 .function_flot_video, .function_flot_switch, .function_flot_network,
 	.function_flot_hand, .function_flot_qa, .function_flot_red,
 	.function_flot_intro, .function_flot_download, .vod_play_btn,
@@ -1065,7 +1063,7 @@
 	}
 }
 
-/*flash(鍗囩骇/瀹夎)鎻愮ず*/
+/*flash(閸楀洨楠�/鐎瑰顥�)閹绘劗銇�*/
 .flash_box {
 	width: 375px;
 	height: 212px;
@@ -1132,7 +1130,7 @@
 	float: left;
 }
 
-/*web璇煶*/
+/*web鐠囶參鐓�*/
 .volume_wp_add:hover .col_close_block {
 	display: block;
 }
@@ -1141,7 +1139,7 @@
 	left: 0;
 }
 
-/*寮瑰箷*/
+/*瀵懓绠�*/
 .bulletScreen {
 	width: 492px;
 	height: 48px;
@@ -1271,7 +1269,7 @@
 	display: none;
 }
 
-/*瑙嗛杩炴帴*/
+/*鐟欏棝顣舵潻鐐村复*/
 .volume_cut_Rtmp, .volume_cut_Websocket, .volume_cut_http {
 	width: 24px;
 	height: 24px;
