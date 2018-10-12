@@ -95,6 +95,7 @@ function connection(isHost, uid) {
           });
 
           client1.on('stream-published', function (evt) {
+        	  debugger;
             console.log("Publish local stream successfully");
           });
         }, function (err) {
@@ -110,70 +111,6 @@ function connection(isHost, uid) {
     console.log("AgoraRTC client1 init failed", err);
   });
 
-  channelKey = "";
-  client1.on('error', function(err) {
-    console.log("Got error msg:", err.reason);
-    if (err.reason === 'DYNAMIC_KEY_TIMEOUT') {
-      client1.renewChannelKey(channelKey, function(){
-        console.log("Renew channel key successfully");
-      }, function(err){
-        console.log("Renew channel key failed: ", err);
-      });
-    }
-  });
-
-
-  client1.on('stream-added', function (evt) {
-    var stream = evt.stream;
-    console.log("New stream added: " + stream.getId());
-    console.log("Subscribe ", stream);
-    client1.subscribe(stream, function (err) {
-      console.log("Subscribe stream failed", err);
-    });
-  });
-
-	  client1.on('stream-subscribed', function (evt) {
-		  layui.use('layer', function(){
-	  			var layer = layui.layer;
-				var	$ = layui.jquery;
-				var stream = evt.stream;
-		  if(isHost==1){
-			  console.log("Subscribe remote stream successfully: " + stream.getId());
-			  if ($('div#videoscreen #agora_other').length === 0) {
-				  $('div#videoscreen').append('<div id="agora_other"  style="float:left; width:150px;height:90px; z-index:999;position: absolute;"></div>');
-				  stream.play('agora_other');
-			  }
-		  }else{ 
-			  var stream = evt.stream;
-			    console.log("Subscribe remote stream successfully: " + stream.getId());
-			    if ($('div#videoscreen #agora_remote').length === 0) {
-			  	      $('div#videoscreen').append('<div id="agora_remote" style="float:left; width:638px;height:427px;display:inline-block; z-index:999;position: absolute;"></div>');
-			    }
-			    stream.play('agora_remote');
-			    var videos = document.getElementsByTagName("video");
-				layui.each(videos, function(index, item){
-					item.setAttribute("controls", "controls");
-					item.style.transform='none';
-				})
-		  }
-		  });
-	  });
-  
-  client1.on('stream-removed', function (evt) {
-    var stream = evt.stream;
-    stream.stop();
-    $('#agora_remote' + stream.getId()).remove();
-    console.log("Remote stream is removed " + stream.getId());
-  });
-
-  client1.on('peer-leave', function (evt) {
-    var stream = evt.stream;
-    if (stream) {
-      stream.stop();
-      $('#agora_remote' + stream.getId()).remove();
-      console.log(evt.uid + " leaved from this channel");
-    }
-  });
 }
 
 function leave() {

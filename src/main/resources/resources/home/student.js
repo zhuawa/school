@@ -25,42 +25,42 @@ function join() {
     client.join(channel_key, '1000', null, function(uid) {
       console.log("User " + uid + " join channel successfully");
 
-      if (document.getElementById("video").checked) {
-        camera = videoSource.value;
-        microphone = audioSource.value;
-        localStream = AgoraRTC.createStream({streamID: uid, audio: true, cameraId: camera, microphoneId: microphone, video: document.getElementById("video").checked, screen: false});
-        //localStream = AgoraRTC.createStream({streamID: uid, audio: false, cameraId: camera, microphoneId: microphone, video: false, screen: true, extensionId: 'minllpmhdgpndnkomcoccfekfegnlikg'});
-        if (document.getElementById("video").checked) {
-          localStream.setVideoProfile('720p_3');
-
-        }
-
-        // The user has granted access to the camera and mic.
-        localStream.on("accessAllowed", function() {
-          console.log("accessAllowed");
-        });
-
-        // The user has denied access to the camera and mic.
-        localStream.on("accessDenied", function() {
-          console.log("accessDenied");
-        });
-
-        localStream.init(function() {
-          console.log("getUserMedia successfully");
-          document.getElementById("defaultjt").style.display = "none";
-          localStream.play('jiangtai');
-
-          client.publish(localStream, function (err) {
-            console.log("Publish local stream error: " + err);
-          });
-
-          client.on('stream-published', function (evt) {
-            console.log("Publish local stream successfully");
-          });
-        }, function (err) {
-          console.log("getUserMedia failed", err);
-        });
-      }
+//      if (document.getElementById("video").checked) {
+//        camera = videoSource.value;
+//        microphone = audioSource.value;
+//        localStream = AgoraRTC.createStream({streamID: uid, audio: true, cameraId: camera, microphoneId: microphone, video: document.getElementById("video").checked, screen: false});
+//        //localStream = AgoraRTC.createStream({streamID: uid, audio: false, cameraId: camera, microphoneId: microphone, video: false, screen: true, extensionId: 'minllpmhdgpndnkomcoccfekfegnlikg'});
+//        if (document.getElementById("video").checked) {
+//          localStream.setVideoProfile('720p_3');
+//
+//        }
+//
+//        // The user has granted access to the camera and mic.
+//        localStream.on("accessAllowed", function() {
+//          console.log("accessAllowed");
+//        });
+//
+//        // The user has denied access to the camera and mic.
+//        localStream.on("accessDenied", function() {
+//          console.log("accessDenied");
+//        });
+//
+//        localStream.init(function() {
+//          console.log("getUserMedia successfully");
+//          document.getElementById("defaultjt").style.display = "none";
+//          localStream.play('jiangtai');
+//
+//          client.publish(localStream, function (err) {
+//            console.log("Publish local stream error: " + err);
+//          });
+//
+//          client.on('stream-published', function (evt) {
+//            console.log("Publish local stream successfully");
+//          });
+//        }, function (err) {
+//          console.log("getUserMedia failed", err);
+//        });
+//      }
     }, function(err) {
       console.log("Join channel failed", err);
     });
@@ -93,16 +93,20 @@ function join() {
   client.on('stream-subscribed', function (evt) {
     var stream = evt.stream;
     console.log("Subscribe remote stream successfully: " + stream.getId());
-    if ($('div#videoscreen #agora_remote').length === 0) {
-      $('div#videoscreen').append('<div id="agora_remote'+'" style="float:left; width:256px;height:160px;display:inline-block;"></div>');
+    if ($('div#videoscreen #agora_remote'+ stream.getId()).length === 0) {
+    	if($('div#videoscreen').children().length === 0){
+    	      $('div#videoscreen').append('<div id="agora_remote'+ stream.getId()+'" style="float:left; width:256px;height:160px;position:absolute;"></div>');
+    	}else{
+  	      $('div#videoscreen').append('<div id="agora_remote'+ stream.getId()+'" style="float:left; width:150px;height:90px;z-index:999;position:absolute;"></div>');
+    	}
     }
-    stream.play('agora_remote');
+    stream.play('agora_remote'+ stream.getId());
   });
 
   client.on('stream-removed', function (evt) {
     var stream = evt.stream;
     stream.stop();
-    $('#agora_remote').remove();
+    $('#agora_remote'+ stream.getId()).remove();
     console.log("Remote stream is removed " + stream.getId());
   });
 
@@ -110,7 +114,7 @@ function join() {
     var stream = evt.stream;
     if (stream) {
       stream.stop();
-      $('#agora_remote').remove();
+      $('#agora_remote'+ stream.getId()).remove();
       console.log(evt.uid + " leaved from this channel");
     }
   });
@@ -177,7 +181,7 @@ var jsonobj = {
 	ishost : isHost,
 	channelnum : 1000
 }
-var wsUri = 'wss://localhost:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
+var wsUri = 'wss://172.17.1.102:8090/websocket?'+encodeURI(JSON.stringify(jsonobj));
 ws = new WebSocket(wsUri);
 layui.use('layer', function(){
 			var layer = layui.layer;

@@ -208,8 +208,6 @@ var userName = '${Session.loginInfo.name}';
 var isHost = '${Session.loginInfo.isHost}';
 </script>
 <script src="../layui/layui.js"></script>
-<script src="../home/gust.js"></script>
-<script src="../home/student.js"></script>
 </head>
 <body><div class="" style="display: none; position: absolute;">
 
@@ -704,6 +702,10 @@ var isHost = '${Session.loginInfo.isHost}';
 			<button id="publish" class="btn btn-primary" onclick="publish()">开播</button>
 			<button id="unpublish" class="btn btn-primary" onclick="unpublish()">停止播放</button>
 		</div>
+		
+
+<script src="../home/gust.js"></script>
+<script src="../home/student.js"></script>
 <script>
 var stuClass;
 window.onload = function(){
