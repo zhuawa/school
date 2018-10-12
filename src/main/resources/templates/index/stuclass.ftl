@@ -583,55 +583,16 @@ var isHost = '${Session.loginInfo.isHost}';
 		                    <div class="vol_network de">      
 		                    <b class="vol_network_arrow"></b>      
 		                    <ul class="network_ul">             </ul>     </div>     <div></div>     
-		                    <div class="function_flot_network function_flot">            <span>优选网络</span>            <b></b>          </div>     <!-- <div class="network_init de">      当前网络不佳，请尝试<a class="choose close_video" href="javascript:;">关闭视频</a>或<a  class="choose choose_net_work" href="javascript:;">优选网络</a>       </div> -->    </li>   </ul>     <ul class="contron_right">    <li class="operation" id="hand">     <a class="ation operation_raise " href="javascript:;">      <span class="raise_time de">00</span>     </a>     <div class="function_flot_hand function_flot function_flot_hand_t">            <span>举手</span>            <b></b>          </div>    </li>    <li class="operation" id="question">     <a class="ation operation_QA" href="javascript:;"></a>     
+		                    <div class="function_flot_network function_flot">            <span>优选网络</span>            <b></b>          </div>     <!-- <div class="network_init de">      当前网络不佳，请尝试<a class="choose close_video" href="javascript:;">关闭视频</a>或<a  class="choose choose_net_work" href="javascript:;">优选网络</a>       </div> -->    </li>   </ul>     <ul class="contron_right">    <li class="operation" id="hand">     <a class="ation operation_raise " onclick="uphand()" href="javascript:;">
+		                    <img width='35px' src="../main/img/puthand.png"/>      <span class="raise_time de">00</span>     </a>     <div class="function_flot_hand function_flot function_flot_hand_t">            <span>举手</span>            <b></b>          
+		                    </div>    
+		                    </li>    
+		                    <li class="operation" id="question">     <a class="ation operation_QA" href="javascript:;"></a>     
 		                    <div class="function_flot_qa function_flot">            
-		                    <span>问答列表</span>            
+		                    <span></span>            
 		                    <b></b>         
 		                    </div>    
 	                    </li>    
-	                    <li class="operation" id="redpacket">     
-		                    <a class="ation operation_redPacket" href="javascript:;"></a>     
-		                    <div class="function_flot_red function_flot function_flot_red_t">      
-		                    <span>红包</span>      <b></b>     
-		                    </div>    
-	                    </li>    
-	                    <li class="operation" id="desc" style="display: none;">     
-		                    <a class="ation operation_I" href="javascript:;"></a>     
-		                    <div class="function_flot_intro function_flot">            
-		                    <span>简介</span>            <b></b>         
-		                     </div>    
-	                    </li>    
-	                    <li class="operation" id="gsShare">     
-		                     <a class="ation share_icon"></a>     
-		                     <div class="function_flot share_icon_hint">      
-		                     <span>分享</span>     </div>     
-		                     <div class="share_list" id="shareList">      
-		                     <a id="gsWeChat"></a>      
-		                     <a id="gsSina" href="javascript:;" target="_blank"></a>      
-		                     <a id="gsQQ" href="javascript:;" target="_blank"></a>     
-		                     </div>     <div class="qrcode_box" id="qrcodeBox">      
-		                     <div class="qrcode_title">       
-		                     <div>分享到朋友圈</div>       <a id="qrcodeClear"></a>      </div>      
-		                     <div id="gsQrcode"></div>      
-		                     <p>打开微信，使用“扫一扫”，点击右上角更多分享到我的朋友圈</p>     </div>     
-		                     <div id="qrcodeShade"></div>    
-	                     </li>    
-	                     <li class="operation operation_right" id="download" style="display: none;">     
-		                     <a class="ation operation_down" href="javascript:;"></a>     
-		                     <div class="function_flot_download function_flot">            
-		                     <span>文件下载</span>            <b></b>          </div>    
-	                     </li>    
-	                     <li class="operation whistle_blowing_on" id="cn_report" style="display: none;">     
-		                     <a class="ation whistle_blowing_icon" id="cn_report_url" href="javascript:;"></a>     
-		                     <div class="function_flot_report function_flot">      <span>举报</span>     </div>    
-	                     </li>    
-	                     <li class="operation daShang_pay_on" id="daShang_pay" style="display: none;">     
-		                     <a class="ation daShang_pay_icon" href="javascript:;"></a>     
-		                     <div class="function_flot_pay function_flot">      
-		                     <span>打赏</span>      <b></b>     </div>     
-		                     <div class="daShang_hint">      
-		                     <span>莫急呦，直播中才能打赏噢~</span>     </div>    
-	                     </li>   
                      </ul>  
                      </gs:plugin-ctrl-live>
                 </div>

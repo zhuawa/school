@@ -55,7 +55,7 @@ function join() {
         localStream.init(function() {
           console.log("getUserMedia successfully");
           document.getElementById("defaultjt").style.display = "none";
-          localStream.play('jiangtai');
+          localStream.play('zhibo');
 
           client.publish(localStream, function (err) {
             console.log("Publish local stream error: " + err);
@@ -100,9 +100,8 @@ function join() {
   client.on('stream-subscribed', function (evt) {
     var stream = evt.stream;
     console.log("Subscribe remote stream successfully: " + stream.getId());
-    debugger;
-    if ($('div#video #agora_remote'+stream.getId()).length === 0) {
-      $('div#video').append('<div id="agora_remote'+stream.getId()+'" style="float:left; width:810px;height:607px;display:inline-block;"></div>');
+    if ($('div#jiangtai #agora_remote'+stream.getId()).length === 0) {
+    	$('div#jiangtai').append('<div id="agora_remote'+ stream.getId()+'" style="float:left; width:150px;height:90px;z-index:999;position:absolute;"></div>');
     }
     stream.play('agora_remote' + stream.getId());
   });
@@ -193,7 +192,7 @@ layui.use('table', function(){
 	,height: 400
 	,cols: [[ //表头
   		{field: 'id', title: 'ID', hide: true}
-  		,{field: 'name', title: '用户名', width:141, fixed:'left'}
+  		,{field: 'name', title: '用户名', width:141, fixed:'left', templet:'<div>{{d.name}} {{#  if(d.tishi == 1){ }}<img width="30px" src="../main/img/puthand1.png"/>{{#  } }}</div>'}
   		,{field: 'oper', title: '操作', width:112, toolbar: '#toolbar'}
 	]],parseData: function(res){ //res 即为原始返回的数据
 									return {
@@ -259,6 +258,7 @@ ws.onmessage = function(message) {
 			var msg = message.data.substring(0,9);
 			userList = JSON.parse(message.data.substring(targ+13));
 			data.data = userList;
+			
 			layui.use(['table','layer'], function(){
 					var table = layui.table;
 					var layer = layui.layer;
@@ -300,6 +300,43 @@ ws.onmessage = function(message) {
     			document.getElementById('ppt').attributes[2].nodeValue = msg;
     			var len = document.getElementById('ppt').src.indexOf('zzs_')+4;
     			document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,len)+msg+".jpg";
+    		}
+    	}else if(message.data.startsWith('cmd:[uphand]')){
+    		debugger
+    		var msg = message.data.substring(12)
+    		if(msg){
+    			msg = msg.replace('[','').replace(']','');
+    			var u = msg.split(",");
+    			for(var i=0;i<userList.length;i++){
+    				if(userList[i].id == u[0]){
+        				userList[i].tishi = 1;
+    				}else{
+    					userList[i].tishi = 0;
+    				}
+    			}
+    			layui.use(['table','layer'], function(){
+					var table = layui.table;
+					var layer = layui.layer;
+					//第一个实例
+					table.reload('userList',{
+					
+	 							url: '/test/data',
+	 							parseData: function(res){ //res 即为原始返回的数据
+									return {
+  										"code": 0, //解析接口状态
+  										"msg": '', //解析提示文本
+  										"count": 1000, //解析数据长度
+  										"data": userList //解析数据列表
+										};
+										}
+					});
+			});
+    			layer.open({
+						title: '在线调试'
+						,content: u[1]+'举手!'
+					,offset: 'rb'
+					,time: 3000
+				});  
     		}
     	}else{
     		writeToScreen(message.data);

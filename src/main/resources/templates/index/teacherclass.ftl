@@ -41,6 +41,7 @@ var isHost = '${Session.loginInfo.isHost}';
 	<div style="height: 95%;">
 	     <div class="zuo" style="background-color:#ffffff">
 	      <div id="jiangtai" class="tupian" style="background-color:#f0f4fd">
+	      	<div id="zhibo" style="float:left; width:256px;height:160px;position:absolute;"></div>
 	      	<div id="defaultjt" style="width:141px; height:128px; padding-top:10px; margin:auto;">
 	        <img src="main/img/teacherclass/jiantai0.png">
 	        </div>
@@ -79,16 +80,9 @@ var isHost = '${Session.loginInfo.isHost}';
 	     
 	     <div class="datupian" style="background-color:#ffffff">
 	      <div class="ye" style="background-color:#ffffff">
-	       <h4>机械波与原子结构.pdf</h4>
+	       <h4>增值税基础知识培训.pdf</h4>
 	       <div class="quanping">
 	        <img src="main/img/teacherclass/quanping.png">
-	       </div> 
-	       <div class="sanjiao02">
-	        <img src="main/img/teacherclass/sanjiao.png">
-	       </div>
-	       <h6>适合页面</h6> 
-	       <div class="sanjiao01">
-	        <img src="main/img/teacherclass/sanjiao.png">
 	       </div> 
 	       <h5 id="pagenumber">1/9</h5>
 	      </div>
