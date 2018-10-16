@@ -40,25 +40,16 @@ var isHost = '${Session.loginInfo.isHost}';
 <div id="maindiv">
 	<div style="height: 95%;">
 	     <div class="zuo" style="background-color:#ffffff">
-	      <div id="jiangtai" class="tupian" style="background-color:#f0f4fd">
+	      <div id="jiangtai" onclick='join()' class="tupian" style="background-color:#f0f4fd">
 	      	<div id="zhibo" style="float:left; width:256px;height:160px;position:absolute;"></div>
-	      	<div id="defaultjt" style="width:141px; height:128px; padding-top:10px; margin:auto;">
-	        <img src="main/img/teacherclass/jiantai0.png">
+	      	<div id="defaultjt" style="float:left;width:141px; height:128px; padding-top:10px; margin:auto;">
+	        <img src="main/img/teacherclass/jiantai0.png" style="margin-left:60px;">
 	        </div>
 	      </div>
 	      <div class="canke" style="background-color:#f3f9fd">
-	       <h1>参课人员（1）</h1>
-	       <div class="liebiao">
-	        <img src="main/img/teacherclass/liebiao.png">
-	       </div>
-	       <div class="sanjiao">
-	        <img src="main/img/teacherclass/sanjiao.png">
-	       </div>
-	       <div class="xiaoshou">
-	        <img src="main/img/teacherclass/xiaohsou.png">
-	       </div>
-	       <div class="yuyin">
-	        <img src="main/img/teacherclass/yuyin.png">
+	       <h1>参课人员</h1>
+	       <div>
+	        <img id="sharedesk" onclick='shareScreen()' style="padding-left:150px;" src="main/img/teacherclass/8.png" title="桌面共享"/>
 	       </div>
 	      </div>
 	      <div class="xin" style="background-color:#ffffff"></div>
@@ -81,12 +72,12 @@ var isHost = '${Session.loginInfo.isHost}';
 	     <div class="datupian" style="background-color:#ffffff">
 	      <div class="ye" style="background-color:#ffffff">
 	       <h4>增值税基础知识培训.pdf</h4>
-	       <div class="quanping">
+	       <div id="quanping" class="quanping">
 	        <img src="main/img/teacherclass/quanping.png">
 	       </div> 
 	       <h5 id="pagenumber">1/9</h5>
 	      </div>
-	      <div class="tupian00" >
+	      <div id="mainscreen" class="tupian00" >
 	      	<div style="width:5%;height:440px;display:inline;">
 	      		<img src="main/img/last.png" onclick="last()" style="width:30px;height:50px;padding-bottom:200px;">
 	      	</div>
@@ -148,7 +139,7 @@ window.onload = function(){
     	$("#maindiv").css({ "height": (window.screen.height*0.85)+"px"}); 
     }
 	teacherClass = new TeacherClass(this);
-	join();
+	//join();
 }
 layui.use('element', function(){
   var $ = layui.jquery

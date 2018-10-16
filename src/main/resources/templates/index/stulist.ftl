@@ -24,22 +24,16 @@
 <link href="../main/css/header.943a74c855571f9079d9f28f2c6788b2.css" rel="stylesheet">
 <div data-v-92ffd944="" id="head_teaHead" class="tea_head" style="min-height: 60px;">
 <div data-v-b9939cda="" data-v-92ffd944="" id="head_teaHead" class="tea_logo_info clearfix" headdata="[object Object]">
-<a data-v-b9939cda="" href="http://www.zhixue.com/container/index/" class="tea_logo fl">
+<a data-v-b9939cda="" href="" class="tea_logo fl">
 <span data-v-b9939cda="" id="head_logo">
 <img data-v-b9939cda="" src="../main/img/logo1.png" class="head_logo_tea"></span></a> 
 <ul data-v-b9939cda="" id="head_menuList" class="tea_head_nav fl">
 <li data-v-b9939cda="">
 		<a data-v-b9939cda="" menumodule="" menuname="homepage" appname="container" linkurl="/container/parent/unbindIndex/" class="rel">
-        首页
-        <i data-v-b9939cda="" class="hot" style="z-index: 2; display: none;"></i></a></li><li data-v-b9939cda=""><a data-v-b9939cda="" menumodule="" menuname="online" appname="paperfresh" linkurl="/course/#/home/index" class="rel on">
         实时课堂
         <i data-v-b9939cda="" class="hot" style="z-index: 2;">开课啦</i></a></li><li data-v-b9939cda=""><a data-v-b9939cda="" menumodule="" menuname="feesReport" appname="container" linkurl="/container/parent/unbindIndex/" class="rel">
-        成绩报告
-        <i data-v-b9939cda="" class="hot" style="z-index: 2; display: none;"></i></a></li><li data-v-b9939cda=""><a data-v-b9939cda="" menumodule="" menuname="errorbook" appname="addon" linkurl="/errorbook/index/" class="rel">
-       互动交流
-        <i data-v-b9939cda="" class="hot" style="z-index: 2; display: none;"></i></a></li><li data-v-b9939cda=""><a data-v-b9939cda="" menumodule="" menuname="automarkingStuEssay" appname="automarkingstudent" linkurl="/index" class="rel">
-     </ul> 
-        <div data-v-b9939cda="" id="head_userInfo" class="tea_head_info"><a data-v-b9939cda="" href="javascript:void(0);"><div data-v-b9939cda="" class="clearfix"></div> <span data-v-b9939cda="" id="head_teaAvartar"><img data-v-b9939cda="" alt="头像" src="../main/img/stuclass/admin01.jpg"></span> <span data-v-b9939cda=""><span data-v-b9939cda="" class="head_username" title="辛逸">辛逸</span><i data-v-b9939cda="" class="drop_arrow down"></i></span></a><a data-v-b9939cda="" id="head_sysMsgNew" class="msg_tip" style="display: none;"><i data-v-b9939cda=""></i></a> <dl data-v-b9939cda="" id="head_avatarMenuList" class="tea_drop_more"><dt data-v-b9939cda="" style="display: none;"><a data-v-b9939cda="" href="javascript:void(0);" data-role="parent" class="on">家长</a></dt> <dd data-v-b9939cda="" class="rel" style="display: none;"><a data-v-b9939cda="" href="http://ucenter.changyan.com/?app-key=zx-container-client?from=web-container_top" class="account">账号设置</a></dd> <dd data-v-b9939cda="" class="rel" style="display: none;"><a data-v-b9939cda="" href="http://www.zhixue.com/portalcenter/home/index/?from=web-container_top" class="more">更多设置</a></dd> <dd data-v-b9939cda="" class="rel" style=""><a data-v-b9939cda="" href="http://www.zhixue.com/portalcenter/home/index/?from=web-container_top" class="center">个人中心</a></dd> <dd data-v-b9939cda="" class="rel"><a data-v-b9939cda="" appname="container" linkurl="/container/systemMsg/index/?from=web-container_top" class="system">系统消息<i data-v-b9939cda="" id="head_sysMsgNew_drop" style="display: none;"></i></a></dd> <dd data-v-b9939cda="" class="rel"><a data-v-b9939cda="" id="userLogOut" href="javascript:void(0);" class="out">退出登录</a></dd></dl></div> <div data-v-b9939cda="" class="clearfix"></div></div></div>
+</ul> 
+		<div data-v-b9939cda="" id="head_userInfo" class="tea_head_info"><a data-v-b9939cda="" href="javascript:void(0);"><div data-v-b9939cda="" class="clearfix"></div> <span data-v-b9939cda="" id="head_teaAvartar"><img data-v-b9939cda="" alt="头像" src="../main/img/stuclass/admin01.jpg"></span> <span data-v-b9939cda=""><span data-v-b9939cda="" class="head_username" title="${Session.loginInfo.name}">${Session.loginInfo.name}</span></span></a><a data-v-b9939cda="" id="head_sysMsgNew" class="msg_tip" style="display: none;"><i data-v-b9939cda=""></i></a> <dl data-v-b9939cda="" id="head_avatarMenuList" class="tea_drop_more"><dt data-v-b9939cda="" style="display: none;"><a data-v-b9939cda="" href="javascript:void(0);" data-role="parent" class="on">家长</a></dt> <dd data-v-b9939cda="" class="rel" style="display: none;"><a data-v-b9939cda="" href="http://ucenter.changyan.com/?app-key=zx-container-client?from=web-container_top" class="account">账号设置</a></dd> <dd data-v-b9939cda="" class="rel" style="display: none;"><a data-v-b9939cda="" href="" class="more">更多设置</a></dd> </dl></div> <div data-v-b9939cda="" class="clearfix"></div></div></div>
      <!--   <script type="text/javascript" src="../main/js/manifest.5ce99b503658e216a9f7.js"></script>
         <script type="text/javascript" src="../main/js/vendor.af39f8e648d2e1e13b0a.js"></script>
         <script type="text/javascript" src="./main/js/header.6916ee7a28fa0cc5b1c6.js"></script>-->
@@ -113,14 +107,14 @@
         <img data-v-4c1b7308="" src="main/img/stuclass/admin01.jpg" width="99" height="99"></div> <div data-v-4c1b7308="" class="cover"></div> 
         <p data-v-4c1b7308="" class="u_center_name">
       您好，
-      <span data-v-4c1b7308="">辛逸</span></p> 
+      <span data-v-4c1b7308="">${Session.loginInfo.name}</span></p> 
       <div data-v-4c1b7308="" class="u_had_learn"><span data-v-4c1b7308="">已学<b data-v-4c1b7308="">3</b>节课</span></div></div> 
       <dl data-v-4c1b7308="" class="c_account_tab"><dd data-v-4c1b7308="">
-      <a data-v-4c1b7308="" href="http://www.zhixue.com/course/#/myCourse/course" class="course on">我的课程</a></dd> 
-      <dd data-v-4c1b7308=""><a data-v-4c1b7308="" href="http://www.zhixue.com/course/#/myCourse/buyRecord" class="account">学习记录</a></dd> 
-      <dd data-v-4c1b7308=""><a data-v-4c1b7308="" href="http://www.zhixue.com/course/#/myCourse/myVoucher" class="voucher">课程收藏夹</a></dd> 
+      <a data-v-4c1b7308="" href="" class="course on">我的课程</a></dd> 
+      <dd data-v-4c1b7308=""><a data-v-4c1b7308="" href="" class="account">学习记录</a></dd> 
+      <dd data-v-4c1b7308=""><a data-v-4c1b7308="" href="" class="voucher">课程收藏夹</a></dd> 
       <!--
-      <dd data-v-4c1b7308=""><a data-v-4c1b7308="" href="http://www.zhixue.com/course/#/myCourse/myAddress" class="address">我的收货地址</a></dd>
+      <dd data-v-4c1b7308=""><a data-v-4c1b7308="" href="" class="address">我的收货地址</a></dd>
       -->
       </dl></div></div> 
       <div data-v-30253dc5="" class="right fl">
@@ -159,7 +153,7 @@
 		      <div data-v-521d6631="" class="sub-course clearfix">
 		      <div data-v-521d6631="" class="fl">
 		      <p data-v-521d6631="" class="subcourse-name">第1讲  增值税</p> 
-		      <p data-v-521d6631="" class="subcourse-ifr">主讲老师：刘贺婷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间：今天 20:00-21:00</p> 
+		      <p data-v-521d6631="" class="subcourse-ifr">主讲老师：教师1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间：今天 20:00-21:00</p> 
 		      <p data-v-521d6631="" class="clearfix"> </p>
 		      </div> 
 		      <a data-v-521d6631="" href="stuclass" class="btn-study" target="_blank">进入教室</a></div></div>
@@ -205,10 +199,10 @@
 	<div class="new_foot_main clearfix">
 		<div class="copyright">
 			<p></p>
-			<span id="foot_copyright"><a style="cursor:default;" target="_blank">皖ICP备05001217号-61</a> xxxx股份有限公司 版权所有</span><a class="sc_display" target="_blank" href="http://www.zhixue.com/login/agreement/?from=web-container_top">智学服务条款</a>
+			<span id="foot_copyright"><a style="cursor:default;" target="_blank">皖ICP备05001217号-61</a> xxxx股份有限公司 版权所有</span><a class="sc_display" target="_blank" href="">智学服务条款</a>
 		</div>
 		<div class="ves_contact_us sc_display">
-			<a class="wechat" href="http://www.zhixue.com/container/public/module/global/images/ZXQRCode.jpg" style="display:none;" target="_blank" title="关注智学公共号"></a>
+			<a class="wechat" href="" style="display:none;" target="_blank" title="关注智学公共号"></a>
 			<a class="qq" href="javascript:void(0);" style="display:none;" title="加入智学学生QQ群：10001"></a>
 		</div>
 	</div>

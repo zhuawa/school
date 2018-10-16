@@ -95,7 +95,6 @@ function connection(isHost, uid) {
           });
 
           client1.on('stream-published', function (evt) {
-        	  debugger;
             console.log("Publish local stream successfully");
           });
         }, function (err) {

@@ -59,19 +59,37 @@ StuClass.prototype.cut = function() {
  * @param b
  */
 function exchange(a,b){
+	var screens = document.getElementById('videoscreen').children;
     var n = a.next(), p = b.prev();
     if (p.length==0) {//人物视频在main区域要切换到sub区域
     	n=b.next();
     	p=a.prev();
     	a.insertBefore(n);
         b.insertAfter(p);
-        document.getElementById('agora_remote').style.height='160px';
-        document.getElementById('agora_remote').style.width='256px';
+        for(var i=0;i<screens.length;i++){
+	    	if(screens[i].style.width=='715px'){
+	    		screens[i].style.height='160px';
+	    		screens[i].style.width='256px';
+	    	}else if(screens[i].style.width=='256px'){
+	    		screens[i].style.height='90px';
+	    		screens[i].style.width='150px';
+	    	}
+	    }
+        //document.getElementById('videoscreen').children[0].style.width
+//        document.getElementById('agora_remote').style.height='160px';
+//        document.getElementById('agora_remote').style.width='256px';
     } else {
     	 b.insertBefore(n);
     	    a.insertAfter(p);
-            document.getElementById('agora_remote').style.height='486px';
-            document.getElementById('agora_remote').style.width='815px';
+    	    for(var i=0;i<screens.length;i++){
+    	    	if(screens[i].style.width=='256px'){
+    	    		screens[i].style.height='486px';
+    	    		screens[i].style.width='715px';
+    	    	}else if(screens[i].style.width=='150px'){
+    	    		screens[i].style.height='160px';
+    	    		screens[i].style.width='256px';
+    	    	}
+    	    }
     }
     
 };

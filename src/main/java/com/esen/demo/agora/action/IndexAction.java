@@ -58,7 +58,7 @@ public class IndexAction extends BaseAction {
 		for (int i=0;i<1;i++) {
 			dataObj = new JsonObject();
 			dataObj.addProperty("id", i);
-			dataObj.addProperty("username", "姜涛");
+			dataObj.addProperty("username", "教师1");
 			dataObj.addProperty("org", "教育中心");
 			dataObj.addProperty("sex", "女");
 			dataObj.addProperty("courseid", i);

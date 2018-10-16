@@ -23,6 +23,18 @@ var videoSelect = document.querySelector('select#videoSource');
 function join() {
   //document.getElementById("join").disabled = true;
   //document.getElementById("video").disabled = true;
+	if($('div#jiangtai div#zhibo').children().length > 0){
+		unpublish();
+		//leave();
+		//client.stopLiveStreaming();
+		var children = $('div#jiangtai div#zhibo').children();
+		for(var i=0;i<children.length;i++){
+			debugger;
+			children[i].remove();
+	        document.getElementById("defaultjt").style.display = "block";
+		}
+		return;
+	}
   var channel_key = null;
 
   console.log("Init AgoraRTC client with App ID: " + '737535e73a634ffebc3f794e637736ee');
@@ -56,7 +68,6 @@ function join() {
           console.log("getUserMedia successfully");
           document.getElementById("defaultjt").style.display = "none";
           localStream.play('zhibo');
-
           client.publish(localStream, function (err) {
             console.log("Publish local stream error: " + err);
           });
@@ -124,7 +135,7 @@ function join() {
 }
 
 function leave() {
-  document.getElementById("leave").disabled = true;
+  //document.getElementById("leave").disabled = true;
   client.leave(function () {
     console.log("Leavel channel successfully");
   }, function (err) {
@@ -141,8 +152,8 @@ function publish() {
 }
 
 function unpublish() {
-  document.getElementById("publish").disabled = false;
-  document.getElementById("unpublish").disabled = true;
+  //document.getElementById("publish").disabled = false;
+  //document.getElementById("unpublish").disabled = true;
   client.unpublish(localStream, function (err) {
     console.log("Unpublish local stream failed" + err);
   });
@@ -192,7 +203,7 @@ layui.use('table', function(){
 	,height: 400
 	,cols: [[ //表头
   		{field: 'id', title: 'ID', hide: true}
-  		,{field: 'name', title: '用户名', width:141, fixed:'left', templet:'<div>{{d.name}} {{#  if(d.tishi == 1){ }}<img width="30px" src="../main/img/puthand1.png"/>{{#  } }}</div>'}
+  		,{field: 'name', title: '用户名', width:141, fixed:'left', templet:'<div>{{d.name}} {{#  if(d.tishi == 1){ }}<img width="25px" src="../main/img/puthand1.png"/>{{#  } }}</div>'}
   		,{field: 'oper', title: '操作', width:112, toolbar: '#toolbar'}
 	]],parseData: function(res){ //res 即为原始返回的数据
 									return {
@@ -302,7 +313,6 @@ ws.onmessage = function(message) {
     			document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,len)+msg+".jpg";
     		}
     	}else if(message.data.startsWith('cmd:[uphand]')){
-    		debugger
     		var msg = message.data.substring(12)
     		if(msg){
     			msg = msg.replace('[','').replace(']','');
@@ -332,7 +342,7 @@ ws.onmessage = function(message) {
 					});
 			});
     			layer.open({
-						title: '在线调试'
+						title: '消息'
 						,content: u[1]+'举手!'
 					,offset: 'rb'
 					,time: 3000
@@ -432,4 +442,49 @@ function TeacherClass(wnd){
  */
 TeacherClass.prototype.show = function(type) {
 	this.type = type;
+}
+
+
+//屏幕共享
+var cclient, screenStream ,localStreams = [];
+function shareScreen(){
+cclient = AgoraRTC.createClient({mode: 'interop'});
+cclient.init('737535e73a634ffebc3f794e637736ee', function () {
+  console.log("AgoraRTC client initialized");
+  cclient.join(null, '1000', null, function(uid) {
+    console.log("User " + uid + " join channel successfully");
+    localStreams.push(uid);
+    screenStream  = AgoraRTC.createStream({streamID: uid, audio: false,  video: false, screen: true ,extensionId: 'minllpmhdgpndnkomcoccfekfegnlikg'});
+
+
+      screenStream .init(function() {
+    	//screenStream.play('mainscreen');
+        cclient.publish(screenStream , function (err) {
+          console.log("Publish local stream error: " + err);
+        });
+        
+        cclient.on('stream-added', function(evt) {
+        	var stream = evt.stream;
+        	var uid = stream.getId()
+
+        	// 收到流加入频道的事件后，先判定是不是本地的uid
+        	if(!localStreams.includes(uid)) {
+        	  console.log('subscribe stream:' + uid);
+        	  // 拉流
+        	  cclient.subscribe(stream);
+        	  }
+        })
+
+        cclient.on('stream-published', function (evt) {
+          console.log("Publish local stream successfully");
+        });
+      }, function (err) {
+        console.log("getUserMedia failed", err);
+      });
+  }, function(err) {
+    console.log("Join channel failed", err);
+  });
+}, function (err) {
+  console.log("AgoraRTC client init failed", err);
+});
 }
