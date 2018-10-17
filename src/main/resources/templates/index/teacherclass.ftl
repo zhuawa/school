@@ -72,18 +72,18 @@ var isHost = '${Session.loginInfo.isHost}';
 	     <div class="datupian" style="background-color:#ffffff">
 	      <div class="ye" style="background-color:#ffffff">
 	       <h4>增值税基础知识培训.pdf</h4>
-	       <div id="quanping" class="quanping">
+	       <div id="quanping" onclick='fullscreen()' class="quanping">
 	        <img src="main/img/teacherclass/quanping.png">
 	       </div> 
 	       <h5 id="pagenumber">1/9</h5>
 	      </div>
 	      <div id="mainscreen" class="tupian00" >
 	      	<div style="width:5%;height:440px;display:inline;">
-	      		<img src="main/img/last.png" onclick="last()" style="width:30px;height:50px;padding-bottom:200px;">
+	      		<img src="main/img/last.png" onclick="last()" style="width:30px;height:50px;padding-bottom:10px;">
 	      	</div>
 	      	<img id="ppt" src="main/img/zzs_1.jpg" index=1 total=9 style="width:90%;height:440px;">
 	      	<div style="width:5%;height:440px;display:inline;">
-	      		<img src="main/img/next.png" onclick="next()" style="width:30px;height:50px;padding-bottom:200px;">
+	      		<img src="main/img/next.png" onclick="next()" style="width:30px;height:50px;padding-bottom:10px;">
 	      	</div>
 	      </div>
 	      <div class="biaobj" style="background-color:#F8F8F8">
@@ -185,7 +185,7 @@ layui.use('element', function(){
 </script>
 <script type="text/html" id="toolbar">
   <a class="layui-btn layui-btn-xs" lay-event="banned" >禁言</ a>
-  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="connect" >连麦</ a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="connect" {{#  if(d.connecting == 1){ }}style="backgroundColor:'#999'"{{#  } }} >连麦</ a>
 </script>
 </body>
 </html>

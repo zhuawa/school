@@ -331,9 +331,6 @@ var isHost = '${Session.loginInfo.isHost}';
                     <div id="videoscreen" class="video_max_wrp vi_max video_opacity video_opshow" style="height: 100%;">
                         
                      </div>
-                    <!-- 最大化图标 -->
-                    <a href="javascript:;" class="maximum_bg" style="">
-                    </a>
                 </div>
                 <div class="hei live3_hei"></div>
                 <div class="userlist-box live3_box" style="height: 387px;">
@@ -535,7 +532,8 @@ var isHost = '${Session.loginInfo.isHost}';
                         </div>
                     </div>
                     <!-- 最大化图标 -->
-                    <a href="javascript:;" class="maximum_bg maxinum_show" style="">
+                    <a id='Maximization' href="javascript:;" onclick='fullscreen()' class="maximum_bg maxinum_show" style="">
+                    <img src="main/img/teacherclass/quanping.png"/>
                     </a>
                     <!-- 加载中 -->
                     <div class="upload de">
@@ -555,27 +553,6 @@ var isHost = '${Session.loginInfo.isHost}';
                     <!-- control -->
                     <gs:plugin-ctrl-live id="widegt-ctrl-live" ctx="gensee_tra" ui="classic" excludeicon="desc,daShang_pay,cn_report" ver="v1" class="gs-sdk-plugin-widget gs-classic-v1"><!-- 控制条 -->     
                     <ul class="contron_left">    
-	                    <li class="volume_wp" id="volume">     
-		                    <a class="volume volume_voice " href="javascript:;"></a>     
-		                    <div id="slider" class="line_bg live_slid ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">           
-		                    <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 75%;"></div>
-		                    <a class="ui-slider-handle ui-state-default ui-corner-all" href="http://zhixue.gensee.com/training/site/s/31484419?token=989959&amp;nickname=%E8%BE%9B%E9%80%B8&amp;uid=1500000100009212401#" style="left: 75%;"></a></div>    
-	                    </li>        
-	                    <li class="volume_li" id="video" style="display: block;">     
-		                    <a class="volume volume_cut volume_cut_Websocket " href="javascript:;"></a>     
-		                    <div class="function_flot_video function_flot">            
-			                    <span>视频</span>            
-			                    <b></b>          
-		                    </div>    
-	                    </li>    
-	                    <li class="volume_li" id="switch">     
-		                 <!--   <a class="volume volume_cut volume_cut_Rtmp" href="javascript:;"></a>     -->
-		                 	<img class='cut' src="main/img/stuclass/bg_smaall.png" onClick="stuClass.cut()"/>
-		                    <div class="function_flot_switch function_flot">            
-			                    <span>切换</span>            
-			                    <b></b>          
-		                    </div>    
-	                    </li>    
 	                    <li class="volume_li vol_net" id="network" style="display: block;">     
 		                    <a class="volume volume_vol" href="javascript:;"></a>     
 		                    <div></div>     
@@ -583,16 +560,18 @@ var isHost = '${Session.loginInfo.isHost}';
 		                    <div class="vol_network de">      
 		                    <b class="vol_network_arrow"></b>      
 		                    <ul class="network_ul">             </ul>     </div>     <div></div>     
-		                    <div class="function_flot_network function_flot">            <span>优选网络</span>            <b></b>          </div>     <!-- <div class="network_init de">      当前网络不佳，请尝试<a class="choose close_video" href="javascript:;">关闭视频</a>或<a  class="choose choose_net_work" href="javascript:;">优选网络</a>       </div> -->    </li>   </ul>     <ul class="contron_right">    <li class="operation" id="hand">     <a class="ation operation_raise " onclick="uphand()" href="javascript:;">
+		                    <div class="function_flot_network function_flot">            <span>优选网络</span>            <b></b>          </div>     <!-- <div class="network_init de">      当前网络不佳，请尝试<a class="choose close_video" href="javascript:;">关闭视频</a>或<a  class="choose choose_net_work" href="javascript:;">优选网络</a>       </div> -->    </li>   </ul>     <ul class="contron_right" style="margin-right:20px;">    <li class="operation" id="hand">     <a class="ation operation_raise " onclick="uphand()" href="javascript:;">
 		                    <img width='35px' src="../main/img/puthand.png"/>      <span class="raise_time de">00</span>     </a>     <div class="function_flot_hand function_flot function_flot_hand_t">            <span>举手</span>            <b></b>          
 		                    </div>    
 		                    </li>    
-		                    <li class="operation" id="question">     <a class="ation operation_QA" href="javascript:;"></a>     
-		                    <div class="function_flot_qa function_flot">            
-		                    <span></span>            
-		                    <b></b>         
+		                    <li class="volume_li" id="switch">     
+		                 <!--   <a class="volume volume_cut volume_cut_Rtmp" href="javascript:;"></a>     -->
+		                 	<img class='cut' src="main/img/stuclass/bg_smaall.png" onClick="stuClass.cut()"/>
+		                    <div class="function_flot_switch function_flot">            
+			                    <span>切换</span>            
+			                    <b></b>          
 		                    </div>    
-	                    </li>    
+	                    </li>     
                      </ul>  
                      </gs:plugin-ctrl-live>
                 </div>

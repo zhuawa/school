@@ -29,7 +29,6 @@ function join() {
 		//client.stopLiveStreaming();
 		var children = $('div#jiangtai div#zhibo').children();
 		for(var i=0;i<children.length;i++){
-			debugger;
 			children[i].remove();
 	        document.getElementById("defaultjt").style.display = "block";
 		}
@@ -203,7 +202,7 @@ layui.use('table', function(){
 	,height: 400
 	,cols: [[ //表头
   		{field: 'id', title: 'ID', hide: true}
-  		,{field: 'name', title: '用户名', width:141, fixed:'left', templet:'<div>{{d.name}} {{#  if(d.tishi == 1){ }}<img width="25px" src="../main/img/puthand1.png"/>{{#  } }}</div>'}
+  		,{field: 'name', title: '用户名', width:141, fixed:'left', templet:'<div>{{d.name}} {{#  if(d.tishi == 1){ }}<img width="25px" src="../main/img/puthand1.png"/>{{#  } }}  {{#  if(d.connecting == 1){ }}<img width="25px" src="../main/img/video.png"/>{{#  } }}</div>'}
   		,{field: 'oper', title: '操作', width:112, toolbar: '#toolbar'}
 	]],parseData: function(res){ //res 即为原始返回的数据
 									return {
@@ -235,9 +234,11 @@ layui.use('table', function(){
 		if(atag.style.backgroundColor==''){//连麦
 			atag.style.backgroundColor='#999';
 			connect(1,$,obj);
+			data.connecting = 1;
 		}else{//断开连麦
 			atag.style.backgroundColor='';
 			connect(0,$,obj);
+			data.connecting = 0;
 		}
 	} 
 });
@@ -301,6 +302,32 @@ ws.onmessage = function(message) {
 						layer.close(index);
 				});
 			}
+    	}else if(message.data.startsWith('cmd:[cancelconnect]')){
+    		var userId = message.data.substring(19);
+    		for(var i=0;i<userList.length;i++){
+    			if(userList[i].id == userId){
+    				userList[i].tishi = 0;
+    				userList[i].connecting = 0;
+    				break;
+    			}
+    		}
+    		layui.use(['table','layer'], function(){
+    			var table = layui.table;
+    			var layer = layui.layer;
+    			//第一个实例
+    			table.reload('userList',{
+    			
+    							url: '/test/data',
+    							parseData: function(res){ //res 即为原始返回的数据
+    							return {
+    									"code": 0, //解析接口状态
+    									"msg": '', //解析提示文本
+    									"count": 1000, //解析数据长度
+    									"data": userList //解析数据列表
+    								};
+    								}
+    			});
+    		});
     	}else if(message.data.startsWith('cmd:[pageindex]')){
     		var msg = message.data.substring(15);
     		if(msg){
@@ -342,12 +369,38 @@ ws.onmessage = function(message) {
 					});
 			});
     			layer.open({
-						title: '消息'
+						title: '提示'
 						,content: u[1]+'举手!'
 					,offset: 'rb'
 					,time: 3000
 				});  
     		}
+    	}else if(message.data.startsWith('cmd:[cancelhand]')){//取消举手
+    		var userId = message.data.substring(16);
+    		for(var i=0;i<userList.length;i++){
+    			if(userList[i].id == userId){
+    				userList[i].tishi = 0;
+    				userList[i].connecting = 1;
+    				break;
+    			}
+    		}
+    		layui.use(['table','layer'], function(){
+    			var table = layui.table;
+    			var layer = layui.layer;
+    			//第一个实例
+    			table.reload('userList',{
+    			
+    							url: '/test/data',
+    							parseData: function(res){ //res 即为原始返回的数据
+    							return {
+    									"code": 0, //解析接口状态
+    									"msg": '', //解析提示文本
+    									"count": 1000, //解析数据长度
+    									"data": userList //解析数据列表
+    								};
+    								}
+    			});
+    	});
     	}else{
     		writeToScreen(message.data);
     	}
@@ -487,4 +540,12 @@ cclient.init('737535e73a634ffebc3f794e637736ee', function () {
 }, function (err) {
   console.log("AgoraRTC client init failed", err);
 });
+}
+
+
+function fullscreen(){
+	document.getElementById('mainscreen').webkitRequestFullScreen();
+	document.getElementById('mainscreen').style.width='100%';
+	document.getElementById('mainscreen').style.height='100%';
+	document.getElementById('ppt').style.height = '100%';
 }

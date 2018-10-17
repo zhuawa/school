@@ -66,7 +66,11 @@ public class TestAction extends BaseAction {
 				Gson gson = new Gson();
 				String json = gson.toJson(user);
 				req.getSession().setAttribute("loginInfoJson", json);
-				return "redirect:/welcome";
+				if("1".equals(user.getIsHost())) {
+					return "redirect:/teacherlist";
+				}else {
+					return "redirect:/main";
+				}
 			}else{
 				return "redirect:/login";
 			}

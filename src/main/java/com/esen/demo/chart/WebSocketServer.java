@@ -108,8 +108,14 @@ public static Map<String, JsonObject> userMap = new HashMap<String, JsonObject>(
         }else if(message!=null && message.startsWith("cmd:[connect]")){
         	connect(message, jsonObj);
         	return;
+        }else if(message!=null && message.startsWith("cmd:[cancelconnect]")){
+        	cancelconnect(message, session, jsonObj);
+        	return;
         }else if(message!=null && message.startsWith("cmd:[pageindex]")) {
         	goPage(message, session, jsonObj);
+        	return;
+        }else if(message!=null && message.startsWith("cmd:[cancelhand]")) {
+        	cancelHand(message, session, jsonObj);
         	return;
         }
         for (String conn : conns.keySet()) {
@@ -135,6 +141,44 @@ public static Map<String, JsonObject> userMap = new HashMap<String, JsonObject>(
     }
 
     
+
+	private void cancelconnect(String message, Session session, JsonObject jsonObj) {
+		 Map s = null;
+	        Session ss = null;
+	        JsonObject userJson = null;
+		for (String conn : conns.keySet()) {
+         s = conns.get(conn);
+         synchronized (s) {
+             try {
+             	ss = (Session)s.get("session");
+             	userJson = (JsonObject)s.get("userJson");
+                 ss.getBasicRemote()
+                         .sendText(message);
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+         }
+     }
+	}
+
+	private void cancelHand(String message, Session session, JsonObject jsonObj) {
+		 Map s = null;
+	        Session ss = null;
+	        JsonObject userJson = null;
+		for (String conn : conns.keySet()) {
+         s = conns.get(conn);
+         synchronized (s) {
+             try {
+             	ss = (Session)s.get("session");
+             	userJson = (JsonObject)s.get("userJson");
+                 ss.getBasicRemote()
+                         .sendText(message);
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+         }
+     }
+	}
 
 	private void goPage(String message, Session session, JsonObject jsonObj) {
 		 Map s = null;

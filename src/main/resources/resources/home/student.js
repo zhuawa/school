@@ -25,42 +25,6 @@ function join() {
     client.join(channel_key, '1000', null, function(uid) {
       console.log("User " + uid + " join channel successfully");
 
-//      if (document.getElementById("video").checked) {
-//        camera = videoSource.value;
-//        microphone = audioSource.value;
-//        localStream = AgoraRTC.createStream({streamID: uid, audio: true, cameraId: camera, microphoneId: microphone, video: document.getElementById("video").checked, screen: false});
-//        //localStream = AgoraRTC.createStream({streamID: uid, audio: false, cameraId: camera, microphoneId: microphone, video: false, screen: true, extensionId: 'minllpmhdgpndnkomcoccfekfegnlikg'});
-//        if (document.getElementById("video").checked) {
-//          localStream.setVideoProfile('720p_3');
-//
-//        }
-//
-//        // The user has granted access to the camera and mic.
-//        localStream.on("accessAllowed", function() {
-//          console.log("accessAllowed");
-//        });
-//
-//        // The user has denied access to the camera and mic.
-//        localStream.on("accessDenied", function() {
-//          console.log("accessDenied");
-//        });
-//
-//        localStream.init(function() {
-//          console.log("getUserMedia successfully");
-//          document.getElementById("defaultjt").style.display = "none";
-//          localStream.play('jiangtai');
-//
-//          client.publish(localStream, function (err) {
-//            console.log("Publish local stream error: " + err);
-//          });
-//
-//          client.on('stream-published', function (evt) {
-//            console.log("Publish local stream successfully");
-//          });
-//        }, function (err) {
-//          console.log("getUserMedia failed", err);
-//        });
-//      }
     }, function(err) {
       console.log("Join channel failed", err);
     });
@@ -204,8 +168,14 @@ ws.onmessage = function(message) {
 						connection('1',stamp-uid);
 						//join('1',parseInt(stamp+uid));
 						layer.close(index);
+						ws.send('cmd:[cancelhand]'+userId);
 				});
 			}
+    	}else if(message.data.startsWith('cmd:[cancelconnect]')){
+    		var msg = message.data.substring(19);
+    		if(userId == msg){
+    			window.location.href = "";
+    		}
     	}else if(message.data.startsWith('cmd:[pageindex]')){
     		var msg = message.data.substring(15);
     		if(msg){
@@ -214,6 +184,8 @@ ws.onmessage = function(message) {
     			var len = document.getElementById('ppt').src.indexOf('zzs_')+4;
 				document.getElementById('ppt').src = document.getElementById('ppt').src.substring(0,len)+msg+".jpg";
     		}
+    	}else if(message.data.startsWith('cmd:[cancelhand]')){
+    		
     	}else{
     		writeToScreen(message.data);
     	}
@@ -276,3 +248,23 @@ function writeToScreen(message) {
 window.onbeforeunload = function() {
     ws.close();
 };
+
+//全屏
+function fullscreen(){
+	var max = document.getElementById('Maximization');
+	if(max.previousElementSibling.id=='mainscreen'){
+		document.getElementById('mainscreen').webkitRequestFullScreen();
+	}
+	if(max.previousElementSibling.id=='subscreen'){
+		document.getElementById('subscreen').webkitRequestFullScreen();
+		var videoChildren = document.getElementById('videoscreen').children;
+		for(var i=0;i<videoChildren.length;i++){
+			if(videoChildren[i].id.startsWith('agora_remote')){
+				if(videoChildren[i].style.width == '715px'){
+					videoChildren[i].style.width = '100%';
+					videoChildren[i].style.height = '100%';
+				}
+			}
+		}
+	}
+}
